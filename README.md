@@ -1,5 +1,5 @@
 ﻿#  **Olá, eu sou o Heitor Kobayashi** 😀
-![DSC05378_comp](https://github.com/user-attachments/assets/3bc75d57-0bbe-45d1-a280-5877d9cdb68f)
+[![DSC05378_comp](https://github.com/user-attachments/assets/3bc75d57-0bbe-45d1-a280-5877d9cdb68f)](https://github.com/heitorkobayashi)
 
 
 Nesses 27 anos de vida, posso dizer que já experienciei um pouco de tudo. Levo comigo que uma mente curiosa nunca pode deixar de estudar. Encontro na área de tecnologia essa voracidade que alimenta o meu desejo de aprender e me reinventar constantemente.
