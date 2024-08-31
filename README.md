@@ -17,7 +17,7 @@ Nesses 27 anos de vida, posso dizer que já experienciei um pouco de tudo. Levo 
 
 📚 **Curso e semestre atual:** Análise e Desenvolvimento de Sistemas - _1° Semestre_
 
-🎸 **Hobbies e curiosidades:** Cinema e literatura são a minha paixão. Sou multi-instrumentista, toco instrumentos de corda e de percussão. 
+🎸 **Hobbies e curiosidades:** Cinema e literatura são a minha paixão. Sou multi-instrumentista, toco instrumentos de corda e de percussão. Gosto muito de história, geopolítica e economia. Praticante de calistenia 💪🏼
 
 ## **🛠 Habilidades e Ferramentas** 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white) ![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white) ![MySQL](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white) ![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)  ![vscode](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
@@ -34,20 +34,13 @@ Nesses 27 anos de vida, posso dizer que já experienciei um pouco de tudo. Levo 
 
 ## **Formação anterior**
 
-**Academia Internacional de Cinema:**
-- Direção de Fotografia: _abr de 2022 - jun de 2022_
-
-**Centro Universitário Senac:**
-- Operação de Câmera: _fev de 2022 - jul de 2022_
-
-**Universidade de São Paulo:**
-- Bacharelado em Letras: _2016 - 2020 (interrompido)_
-
-**Escola de Música do Estado de São Paulo:**
-- Contrabaixo elétrico: _2012 - 2013_
-
-**Instituto Técnico de Barueri:**
-- Ensino Médio Profissionalizante em Redes de Computadores: _2011 - 2013_
+| Instituição de Ensino                   | Curso                                       | Data de conclusão            |
+| :---------------------------------------| :-------------------------------------------| :----------------------------|
+|  Academia Internacional de Cinema       | Direção de Fotografia                       | abr de 2022 - jun de 2022    |
+|  Centro Universitário Senac             | Operação de Câmera                          | fev de 2022 - jul de 2022    |
+| Universidade de São Paulo               | Bacharelado em Letras                       | 2016 - 2020 _(interrompido)_ |
+| Escola de Música do Estado de São Paulo | Contrabaixo elétrico                        | 2012 - 2013                  |
+| Instituto Técnico de Barueri            | Ensino Médio Técnico: Redes de Computadores | 2011 - 2013                  |
 
 ## **Idiomas**
 
