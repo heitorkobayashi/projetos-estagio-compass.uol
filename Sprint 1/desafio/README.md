@@ -132,15 +132,152 @@ Com o `zip` instalado no sistema, pode-se realizar a compressão do arquivo de b
 
 A utilização do `zip -r` foi essencial para incluir todos os arquivos e subdiretórios dentro do diretório desejado: Ou melhor, utilizando os jargões técnicos, de forma recursiva (coisas que aprendemos na prática... por muitas tentativas o meu zip deu errado).
 
+### 3.6 Agendamento
+
+Para que o script fosse automatizado, era necessário a realização do agendamento pelo próprio sistema. Com o comando `crontab -e` pode-se efetuar esta tarefa. Antes de executar o agendamento conforme o horário solicitado no desafio, optei pela realização de um teste para saber se estava no caminho correto.
+
+![imagem_09](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/09_agendamento_teste.png)
+
+Com `crontab -l` podemos listar os agendamentos implementados. Esse teste teve como objetivo executar o Script 1 a cada minuto. Para mostrar os relatórios com nomes diferentes, houve uma mudança no nome dos arquivos, como mostra a imagem a seguir:
+
+![imagem_10](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/10_agendamento_teste_modificacao_data.png)
+
+Dessa forma, pode-se obter os seguintes resultados:
+
+![imagem_11](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/11_agendamento_teste_resultado.png)
+
+Com o teste sendo bem sucedido, bastava apenas a criação do Script 2 e o agendamento nos dias solicitados. 
+
+
 ## 4. Criação do Script 2
 
+Por se tratar de um script mais simples comparado ao anterior, optei por, logo após,  desenvolvê-lo na sequência dos testes para ter todas as ferramentas em mãos antes da execução de todo o procedimento, assim, diminuindo os riscos que poderiam se suceder.
 
-## 5. Execução do Processamento
+### 4.1. Código do Script 2
+
+A imagem abaixo mostra a criação do arquivo executável e a utilização do comando `chmod u+x` para garantir a execução do script. 
+
+![imagem_12](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/12_script2_criacao.png)
+
+Sobre o código em si do [Script 2](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/desafio/entregaveis/ecommerce/consolidador_de_processamento_de_vendas.sh), podemos destacar: 
+
+```bash
+#!/bin/bash
+
+#Definição do caminho do diretório
+caminho_relatorios="/home/heitorkobayashi/ecommerce/vendas/backup"
+
+#Definição da variável do relatório
+arquivo_final="relatorio_final.txt"
+
+#Mudança de diretório
+cd "$caminho_relatorios"
+
+#Junção de todos relatórios em um só
+cat relatorio-*.txt >> "$arquivo_final"
+
+#Mensagem final
+echo "O arquivo $arquivo_final foi gerado!"
+```
+
+- A criação da variável `caminho_relatorios` para facilitar a utilização do caminho absoluto.
+- A definição da variável do relatório final.
+- A utilização do comando `cat` para a concatenação dos relatórios em apenas um arquivo, o `$arquivo_final`.
+- A notação utilizada para identificar os relatórios existentes no diretório `relatorio-*.txt`. O asterisco tem como função selecionar todos os arquivos existentes que possuem em seu nome a palavra"relatorio-" e que terminam em ".txt"
+
+### 4.2. Teste de execução
+
+Com o script pronto, era hora de testá-lo com os relatórios existentes na pasta de backup:
+
+![imagem_14](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/14_script2_teste_exec.png)
+
+
+## 5. Execução do procedimento
+
+Agora tudo estava pronto para a realização do procedimento. Para remover o agendamento de teste foi utilizado o comando `crontab -r`. 
+
+![imagem15](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/15_crontab_agendamento.png)
+
+- Com o `crontab -e` pode-se agendar a execução do Script 1.
+- A task `27 15 * * 3-6 /home...` quer dizer que o agendamento será realizado de quarta-feira a sábado às 15 horas e 27 minutos. 
 
 ## 6. Resultados
 
-## 7. Dificuldades Durante o Desafio
+### 6.1. Primeiro dia
 
-## 8. Considerações Finais
+Com a execução do Script 1 agendado, bastava apenas a coleta dos resultados e a adição de dados no arquivo `dados_de_vendas.csv` durante os dias do agendamento.
 
-## 9. Referências
+Para o primeiro dia não foi necessária a inserção de dados, então os resultados obtidos foram estes:
+
+![imagem16](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/15_crontab_agendamento.png)
+
+### 6.2. Segundo, terceiro e quarto dia
+
+Neste segundo dia, foi preciso inserir dados novos. Para garantir a permissão de alteração do arquivo `dados_de_vendas.csv`, o comando `chmod u+w` foi utilizado, conforme mostra a image abaixo:
+
+![imagem17](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/17_permissao_dados_dia2.png)
+
+Em seguida, a linha com ID "89" foi adicionada ao arquivo, e assim sucessivamente:
+
+![imagem15](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/15_crontab_agendamento.png)
+
+![imagem20](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/20_adicional_dados_dia3.png)
+
+![imagem22](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/22_adicional_dados_dia4.png)
+
+No final do dia 4, obteve-se o seguinte resultado:
+
+![imagem23](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/23_resultado_dia4.png)
+
+
+### 6.5. Resultado do Script 2
+
+Por fim, após as execuções do Script 1 e, com todos os relatórios gerados durantes os dias, restava apenas a execução manual do Script 2.
+
+![imagem24](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/24_script2_execucao.png)
+
+Pela imagem, percebe-se a criação do arquivo [`relatorio_final.txt`](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/desafio/entregaveis/ecommerce/vendas/backup/relatorio_final.txt) exatamente na pasta solicitada. A utilização do comando `cat` foi para evidenciar o conteúdo do arquivo final.
+
+
+## 7. Dificuldades e Considerações Finais
+
+Enquanto redigia este README, me dei conta que estava passando a ideia de que as etapas foram fluídas entre elas. Claro, isto foi intencional, mas as coisas não aconteceram tão bem assim. Durante a realização deste desafio, encontrei algumas adversidades e listarei os processos que mais deram trabalho durante o seu desenvolvimento.
+
+### 7.1 Desenvolvimento do Script 1
+
+A primeira dificuldade foi o desenvolvimento do primeiro script, com destaque para a extração dos dados e a criação do relatório. Foram dois dias de trabalho intenso, quebrando a cabeça e a cara para achar uma solução para o problema. 
+
+A meta era finalizar o script na segunda-feira (26/08/2024). Eu até cheguei a finalizar e conseguia executar o script manualmente, mas infelizmente me deparei com um outro empecilho, o agendamento. 
+
+### 7.2. O agendamento e a utilização dos caminhos absolutos
+
+Na imagem abaixo está o meu primeiro código:
+
+![imagem25](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/25_dificuldade_primeiro_script.png)
+
+Além do péssimo design que eu escolhi ao trabalhar, você, caro técnico leitor, com certeza já notou o problema, não é mesmo? 
+
+Pois bem, até eu achar a solução para o meu código, que era a inserção dos caminhos absolutos e a inclusão do caminho a ser executado o script, passaram-se 2 dias. Até fiz uma gravação de tela para mostrar as minhas frustradas tentativas:
+
+![gif26](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/26_dificuldade_tentativas.gif)
+
+Antes de saber que o problema era o código em si, eu pensava que o problema era com o agendamento. Então pensei em fazer um teste que criava um arquivo chamado `minuto.txt` que atualizava com a data atual do sistema:
+
+```bash
+* * * * * echo$(date) >> /home/heitorkoba/ecommerce/minuto.txt
+```
+
+Na imagem abaixo, eu fiz a demonstração desse procedimento após a realização do script, infelizmente acabei esquecendo de evidenciar essa etapa...
+
+![imagem27](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/27_dificuldade_crontab.jpg)
+
+- o arquivo `a.sh` era um script que fazia parte dos meus testes e continha um comando `touch abc.txt`.
+
+Vendo que o problema não era o agendamento, levei a questão para monitoria. E isso já era quarta-feira (28/08/24). Prontamente fui respondido para rever os caminhos do meu código. A resposta me atendeu muito bem já que não foi entregue de "mão beijada", mas sim despertou uma faísca na minha mente. Após algumas horas, consegui chegar no resultado final do Script 1. 
+
+Vale ressaltar aqui a cooperação não só entre os membros da minha Squad, mas sim do Programa. Algumas pessoas estavam com problemas similares ao meu e eu posso dizer com tranquilidade que sei que apenas sozinho não chegaria no resultado esperado.
+
+
+## 8. Referências
+
+Durante este texto, fiz diversas afirmações que obviamente tiveram alguma fonte de pesquisa. Não adotei o esquema de citações durante o texto para não ficar massante e, acredito, que não faça sentido nesse formato. De qualquer forma, colocarei as fontes que utilizei para encontrar os comandos e realizar toda a fundamentação teórica. 
