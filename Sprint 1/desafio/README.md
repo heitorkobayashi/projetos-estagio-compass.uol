@@ -1,28 +1,29 @@
 # **Sprint 1: Desafio**
 
-## 1. Objetivos
+## **1. Objetivos**
 
-Este desafio teve como objetivo a criação de dois scripts que automatizassem a geração de relatórios de vendas a partir de um arquivo `.cvs`, com execução durante 4 dias seguidos.
+Este desafio teve como objetivo a criação de dois scripts que automatizassem a geração de relatórios de vendas a partir de um arquivo [`.csv`](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/desafio/entregaveis/ecommerce/dados_de_vendas.csv), com execução durante 4 dias seguidos.
 
-O primeiro script, o qual chamaremos de [Script 1](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/desafio/entregaveis/ecommerce/processamento_de_vendas.sh), realiza a criação de diretórios e subdiretórios, a cópia do arquivo `.csv` para arquivos de backup junto com a moção desses arquivos para determinados diretórios, além da extração de dados deste arquivo e a criação de um `relatorio.txt` contendo todas essas informações. Já o segundo script, [Script 2](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/desafio/entregaveis/ecommerce/consolidador_de_processamento_de_vendas.sh), teve como função a junção de todos os relatórios gerados a partir do script anterior e, assim, criar um arquivo chamado `relatorio_final.txt`
-## 2. Preparação
+O primeiro script, o qual chamaremos de [Script 1](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/desafio/entregaveis/ecommerce/processamento_de_vendas.sh), realiza a criação de diretórios e subdiretórios, a cópia do arquivo  para arquivos de backup junto com a moção desses arquivos para determinados diretórios, além da extração de dados deste arquivo e a criação de relatórios [`relatorio.txt`](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/tree/main/Sprint%201/desafio/entregaveis/ecommerce/vendas/backup) contendo todas essas informações. Já o segundo script, [Script 2](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/desafio/entregaveis/ecommerce/consolidador_de_processamento_de_vendas.sh), teve como função a junção de todos os relatórios gerados a partir do script anterior e, assim, criar um arquivo chamado [`relatorio_final.txt`](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/desafio/entregaveis/ecommerce/vendas/backup/relatorio_final.txt)
+
+## **2. Preparação**
 
 Antes de iniciar o script em si, foi realizada a preparação da área de trabalho, ou seja, a criação dos diretórios necessários para a execução deste desafio.
 
-### 2.1. Criação do diretório ecommerce
+### **2.1. Criação do diretório ecommerce**
 
-Para criar o diretório `ecommerce` foi utilizado o comando `mkdir ecommerce`. O arquivo `dados_de_vendas.csv` foi inserido manualmente no linux. Com o comando `ls` pode-se listar os diretórios e arquivos existentes, como mostra a imagem abaixo:
+Para criar o diretório [`ecommerce`](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/tree/main/Sprint%201/desafio/entregaveis/ecommerce) foi utilizado o comando `mkdir ecommerce`. O arquivo `dados_de_vendas.csv` foi inserido manualmente no linux. Com o comando `ls` pode-se listar os diretórios e arquivos existentes, como mostra a imagem abaixo:
 
 ![imagem_01](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/01_criacao_pasta_ecommerce.png) 
 
 
-## 3. Criação do Script 1
+## **3. Criação do Script 1**
 
 Nesta etapa, no processo de criação do script, foi dada a preferência por desenvolvê-lo em etapas para garantir que o caminho estava correto e evitar surpresas ao final do código.
 
-### 3.1 Criação dos subdiretórios
+### **3.1. Criação dos subdiretórios**
 
-O primeiro passo deste script foi a criação dos subdiretórios `vendas` e `backup`, além da realização de uma cópia do arquivo `dados_de_vendas.csv` para a pasta `vendas`.
+O primeiro passo deste script foi a criação dos subdiretórios [`vendas`](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/tree/main/Sprint%201/desafio/entregaveis/ecommerce/vendas) e [`backup`](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/tree/main/Sprint%201/desafio/entregaveis/ecommerce/vendas/backup), além da realização de uma cópia do arquivo `dados_de_vendas.csv` para a pasta `vendas`.
 
 - Com o comando `cd` é definido onde o script será executado.
 - Sabendo que o script será realizado mais que uma vez, com o `mkdir -p` é possível realizar a criação da pasta vendas e prevenir erros futuros por conta da criação de diretórios já existentes, neste caso os diretórios `vendas` e `backup`. 
@@ -34,7 +35,7 @@ Abaixo, podemos ver o resultado desta primeira parte do script. Nota-se a utiliz
 
 ![imagem_03](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/03_resultado_codigo_criacao_subdiretorios.png) 
 
-### 3.2 Renomeação do arquivo de backup
+### **3.2. Renomeação do arquivo de backup**
 
 Para a renomeação do arquivo `dados_de_vendas.csv`, foi necessário a definição da variável `data` conforme a data atual do sistema operacional. Com o comando `data=$(date +%Y%m%d)` é possível obter este resultado. Assim, bastou realizar a cópia do arquivo para a pasta `backup` e a renomeação do arquivo com o comando `mv`.
 
@@ -47,7 +48,7 @@ mv dados_de_vendas.csv backup-dados-$data.csv
 
 - Nota-se a utilização do `$`, que junto do `=` foi utilizado para atribuir valores a variáveis e substituir valores, como no caso da renomeação do arquivo de `backup` com a data atual do sistema.
 
-### 3.3 Extração de dados
+### **3.3. Extração de dados**
 
 Para extrair as informações do arquivo `.csv`, foi necessário armazenar o nome do arquivo de backup renomeado em uma variável, no caso, com toda a criatividade disponível no momento, a variável `dados_tabela`, possibilitando o acesso ao arquivo. 
 
@@ -73,7 +74,7 @@ Agora, sobre os demais itens da sintaxe:
 - O comando `wc` é utilizado para contar linhas e caracteres. Com a flag `-l`, define a contagem apenas das linhas. Dessa forma é possível contabilizar o número total de itens.
 - O `|` se chama pipe, um operador que permite conectar as entradas e saídas dos comandos.
 
-### 3.4 Criação do arquivo relatorio.txt
+### **3.4. Criação do arquivo relatorio.txt**
 
 Para a criação do arquivo `relatorio.txt` foi utilizado a atribuição da variável `arquivo` ao nome do arquivo de relatório que será criado.
 
@@ -124,7 +125,7 @@ Para notificar o usuário de que o relatório foi gerado com sucesso, o comando 
 
 ![imagem_05](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/05_resultado_extracao_dados_criacao_relatorio.png)
 
-### 3.5 Compressão do arquivo em zip e remoção dos arquivos `.csv`
+### **3.5. Compressão do arquivo em zip e remoção dos arquivos `.csv`**
 
 Com o `zip` instalado no sistema, pode-se realizar a compressão do arquivo de backup e, posteriormente, a remoção dos arquivos `.csv`, conforme a imagem abaixo:
 
@@ -132,7 +133,7 @@ Com o `zip` instalado no sistema, pode-se realizar a compressão do arquivo de b
 
 A utilização do `zip -r` foi essencial para incluir todos os arquivos e subdiretórios dentro do diretório desejado: Ou melhor, utilizando os jargões técnicos, de forma recursiva (coisas que aprendemos na prática... por muitas tentativas o meu zip deu errado).
 
-### 3.6 Agendamento
+### **3.6. Agendamento**
 
 Para que o script fosse automatizado, era necessário a realização do agendamento pelo próprio sistema. Com o comando `crontab -e` pode-se efetuar esta tarefa. Antes de executar o agendamento conforme o horário solicitado no desafio, optei pela realização de um teste para saber se estava no caminho correto.
 
@@ -149,11 +150,11 @@ Dessa forma, pode-se obter os seguintes resultados:
 Com o teste sendo bem sucedido, bastava apenas a criação do Script 2 e o agendamento nos dias solicitados. 
 
 
-## 4. Criação do Script 2
+## **4. Criação do Script 2**
 
 Por se tratar de um script mais simples comparado ao anterior, optei por, logo após,  desenvolvê-lo na sequência dos testes para ter todas as ferramentas em mãos antes da execução de todo o procedimento, assim, diminuindo os riscos que poderiam se suceder.
 
-### 4.1. Código do Script 2
+### **4.1. Código do Script 2**
 
 A imagem abaixo mostra a criação do arquivo executável e a utilização do comando `chmod u+x` para garantir a execução do script. 
 
@@ -185,14 +186,14 @@ echo "O arquivo $arquivo_final foi gerado!"
 - A utilização do comando `cat` para a concatenação dos relatórios em apenas um arquivo, o `$arquivo_final`.
 - A notação utilizada para identificar os relatórios existentes no diretório `relatorio-*.txt`. O asterisco tem como função selecionar todos os arquivos existentes que possuem em seu nome a palavra"relatorio-" e que terminam em ".txt"
 
-### 4.2. Teste de execução
+### **4.2. Teste de execução**
 
-Com o script pronto, era hora de testá-lo com os relatórios existentes na pasta de backup:
+Com o script pronto e com alguns relatórios gerados na pasta backup, era hora de testá-lo:
 
 ![imagem_14](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/14_script2_teste_exec.png)
 
 
-## 5. Execução do procedimento
+## **5. Execução do procedimento**
 
 Agora tudo estava pronto para a realização do procedimento. Para remover o agendamento de teste foi utilizado o comando `crontab -r`. 
 
@@ -201,9 +202,9 @@ Agora tudo estava pronto para a realização do procedimento. Para remover o age
 - Com o `crontab -e` pode-se agendar a execução do Script 1.
 - A task `27 15 * * 3-6 /home...` quer dizer que o agendamento será realizado de quarta-feira a sábado às 15 horas e 27 minutos. 
 
-## 6. Resultados
+## **6. Resultados**
 
-### 6.1. Primeiro dia
+### **6.1. Primeiro dia**
 
 Com a execução do Script 1 agendado, bastava apenas a coleta dos resultados e a adição de dados no arquivo `dados_de_vendas.csv` durante os dias do agendamento.
 
@@ -211,7 +212,7 @@ Para o primeiro dia não foi necessária a inserção de dados, então os result
 
 ![imagem16](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/15_crontab_agendamento.png)
 
-### 6.2. Segundo, terceiro e quarto dia
+### **6.2. Segundo, terceiro e quarto dias**
 
 Neste segundo dia, foi preciso inserir dados novos. Para garantir a permissão de alteração do arquivo `dados_de_vendas.csv`, o comando `chmod u+w` foi utilizado, conforme mostra a image abaixo:
 
@@ -230,7 +231,7 @@ No final do dia 4, obteve-se o seguinte resultado:
 ![imagem23](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/23_resultado_dia4.png)
 
 
-### 6.5. Resultado do Script 2
+### **6.3. Resultado do Script 2**
 
 Por fim, após as execuções do Script 1 e, com todos os relatórios gerados durantes os dias, restava apenas a execução manual do Script 2.
 
@@ -239,17 +240,17 @@ Por fim, após as execuções do Script 1 e, com todos os relatórios gerados du
 Pela imagem, percebe-se a criação do arquivo [`relatorio_final.txt`](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/desafio/entregaveis/ecommerce/vendas/backup/relatorio_final.txt) exatamente na pasta solicitada. A utilização do comando `cat` foi para evidenciar o conteúdo do arquivo final.
 
 
-## 7. Dificuldades e Considerações Finais
+## **7. Dificuldades e Considerações Finais**
 
 Enquanto redigia este README, me dei conta que estava passando a ideia de que as etapas foram fluídas entre elas. Claro, isto foi intencional, mas as coisas não aconteceram tão bem assim. Durante a realização deste desafio, encontrei algumas adversidades e listarei os processos que mais deram trabalho durante o seu desenvolvimento.
 
-### 7.1 Desenvolvimento do Script 1
+### **7.1. Desenvolvimento do Script 1**
 
 A primeira dificuldade foi o desenvolvimento do primeiro script, com destaque para a extração dos dados e a criação do relatório. Foram dois dias de trabalho intenso, quebrando a cabeça e a cara para achar uma solução para o problema. 
 
-A meta era finalizar o script na segunda-feira (26/08/2024). Eu até cheguei a finalizar e conseguia executar o script manualmente, mas infelizmente me deparei com um outro empecilho, o agendamento. 
+A meta era finalizar o script até segunda-feira (26/08/2024). Nesse dia, eu cheguei a finalizar e conseguia executar o script manualmente, mas infelizmente me deparei com um outro empecilho, o agendamento. 
 
-### 7.2. O agendamento e a utilização dos caminhos absolutos
+### **7.2. O agendamento e a utilização dos caminhos absolutos**
 
 Na imagem abaixo está o meu primeiro código:
 
@@ -267,17 +268,31 @@ Antes de saber que o problema era o código em si, eu pensava que o problema era
 * * * * * echo$(date) >> /home/heitorkoba/ecommerce/minuto.txt
 ```
 
-Na imagem abaixo, eu fiz a demonstração desse procedimento após a realização do script, infelizmente acabei esquecendo de evidenciar essa etapa...
+Infelizmente acabei esquecendo de evidenciar essa etapa devidamente, por isso, na imagem abaixo, eu fiz a demonstração desse procedimento após a realização do script.
 
 ![imagem27](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/27_dificuldade_crontab.jpg)
 
-- o arquivo `a.sh` era um script que fazia parte dos meus testes e continha um comando `touch abc.txt`.
+- o arquivo `a.sh` era um script que fazia parte dos meus testes e continha um simples comando `touch abc.txt`.
 
-Vendo que o problema não era o agendamento, levei a questão para monitoria. E isso já era quarta-feira (28/08/24). Prontamente fui respondido para rever os caminhos do meu código. A resposta me atendeu muito bem já que não foi entregue de "mão beijada", mas sim despertou uma faísca na minha mente. Após algumas horas, consegui chegar no resultado final do Script 1. 
+Vendo que o problema não era o agendamento, levei a questão para monitoria na quarta-feira (28/08/24). Prontamente fui respondido para rever os caminhos do meu código. A resposta me atendeu muito bem já que não foi entregue de "mão beijada", mas sim despertou uma faísca na minha mente. Após algumas horas, consegui chegar no resultado final do Script 1. 
 
-Vale ressaltar aqui a cooperação não só entre os membros da minha Squad, mas sim do Programa. Algumas pessoas estavam com problemas similares ao meu e eu posso dizer com tranquilidade que sei que apenas sozinho não chegaria no resultado esperado.
+Vale ressaltar aqui a cooperação não só entre os membros da minha Squad, mas de todas as pessoas do Programa. Alguns enfrentavam problemas semelhantes ao meu, e posso dizer com tranquilidade que, sozinho, não alcançaria o resultado esperado.
 
 
-## 8. Referências
+## **8. Referências**
 
-Durante este texto, fiz diversas afirmações que obviamente tiveram alguma fonte de pesquisa. Não adotei o esquema de citações durante o texto para não ficar massante e, acredito, que não faça sentido nesse formato. De qualquer forma, colocarei as fontes que utilizei para encontrar os comandos e realizar toda a fundamentação teórica. 
+Neste texto, fiz diversas afirmações que, obviamente, tiveram como base alguma fonte de pesquisa. Optei por não adotar o esquema de citações ao longo do texto para evitar que ele se tornasse massante, e acredito que não seria adequado neste formato. De qualquer forma, incluirei as fontes que utilizei para encontrar os comandos e para fundamentar teoricamente o conteúdo apresentado.
+
+GEEKSFORGEEKS. **awk command in Unix/Linux with examples.** Disponível em: https://www.geeksforgeeks.org/awk-command-unixlinux-examples/. Acesso em: 24 aug. 2024.
+
+KODEKLOUD. **EOF in Bash**. Disponível em: https://kodekloud.com/blog/eof-bash/. Acesso em: 25 ago. 2024.
+
+LEARN LINUX TV. **How to use awk to process CSV files.** YouTube, 3 ago. 2021. Disponível em: https://youtu.be/oPEnvuj9QrI. Acesso em: 24 ago. 2024.
+
+LINUXHELP. **How to schedule a Cron Job to run a script on Ubuntu 16.04**. YouTube, 8 jun. 2018. Disponível em: https://www.youtube.com/watch?v=CIVI-DIzCFk. Acesso em: 26 ago. 2024.
+
+PRACIANO, Elias. **Como adicionar a data atual ao nome de um arquivo no Bash.** 2017. Disponível em: https://elias.praciano.com/2017/04/como-adicionar-a-data-atual-ao-nome-de-um-arquivo-no-bash/#:~:text=Acompanhe%20mais%20alguns%20exemplos%20de,%2C%20hoje%3A%20%24nomearquivo. Acesso em: 24 ago. 2024.
+
+TOTVS DEVELOPERS. **Entendendo o crontab. Medium, 20 set. 2020**. Disponível em: https://medium.com/totvsdevelopers/entendendo-o-crontab-607bc9f00ed3. Acesso em: 26 ago. 2024.
+
+WDEV. **Cron, crontab e cronjob: agendando tarefas automáticas**. YouTube, 10 dez. 2020. Disponível em: https://youtu.be/TG--rQkZvGc. Acesso em: 26 de ago. 2024.
