@@ -16,12 +16,12 @@ Então eu sugeri a criação de um **Trello** para adequação das informações
 
 ![imagem_trello](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/trello_squad.png)
 
-- Como não é nada oficial, eu tomei a liberdade de utilizar uns gifs para dar uma descontraída :)
-- Aos poucos vamos otimizando a ferramenta para utilizar da melhor forma possível. 
+- Como não é nada oficial, eu tomei a liberdade de inserir uns gifs para dar uma descontraída :)
+- Aos poucos vamos otimizando a ferramenta para utilizá-la da melhor forma possível. 
 
 # **Anotações**
 
-Para realizar as anotações, eu tenho o costume de utilizar o **OneNote**, uma ferramenta que me auxilia durante o processo de aprendizado e na realização de tarefas. 
+Para realizar as anotações, eu tenho o costume de usar o **OneNote**, uma ferramenta que me auxilia durante o processo de aprendizado e na realização de tarefas. 
 
 ![anotacoes](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/Anotacoes_01.png)
 
