@@ -2,9 +2,11 @@
 
 ## **1. Objetivos**
 
-Este desafio teve como objetivo a criação de dois scripts que automatizassem a geração de relatórios de vendas a partir de um arquivo [`.csv`](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/desafio/entregaveis/ecommerce/dados_de_vendas.csv), com execução durante 4 dias seguidos.
+Este desafio teve como objetivo a criação de dois scripts que automatizassem a geração de relatórios de vendas a partir de um arquivo **[`.csv`](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/desafio/entregaveis/ecommerce/dados_de_vendas.csv)**, com execução durante 4 dias seguidos.
 
-O primeiro script, o qual chamaremos de [Script 1](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/desafio/entregaveis/ecommerce/processamento_de_vendas.sh), realiza a criação de diretórios e subdiretórios, a cópia do arquivo  para arquivos de backup junto com a moção desses arquivos para determinados diretórios, além da extração de dados deste arquivo e a criação de relatórios [`relatorio.txt`](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/tree/main/Sprint%201/desafio/entregaveis/ecommerce/vendas/backup) contendo todas essas informações. Já o segundo script, [Script 2](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/desafio/entregaveis/ecommerce/consolidador_de_processamento_de_vendas.sh), teve como função a junção de todos os relatórios gerados a partir do script anterior e, assim, criar um arquivo chamado [`relatorio_final.txt`](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/desafio/entregaveis/ecommerce/vendas/backup/relatorio_final.txt)
+O primeiro script, o qual chamaremos de **[Script 1](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/desafio/entregaveis/ecommerce/processamento_de_vendas.sh)**, realiza a criação de diretórios e subdiretórios, a cópia do arquivo  para arquivos de backup junto com a moção desses arquivos para determinados diretórios, além da extração de dados deste arquivo e a criação de relatórios **[`relatorio.txt`](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/tree/main/Sprint%201/desafio/entregaveis/ecommerce/vendas/backup)** contendo todas essas informações. Já o segundo script, **[Script 2](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/desafio/entregaveis/ecommerce/consolidador_de_processamento_de_vendas.sh)**, teve como função a junção de todos os relatórios gerados a partir do script anterior e, assim, criar um arquivo chamado **[`relatorio_final.txt`](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/desafio/entregaveis/ecommerce/vendas/backup/relatorio_final.txt)**
+
+O diretório contendo todos os resultados do desafio, você pode encontrar **[aqui neste link](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/tree/main/Sprint%201/desafio/entregaveis)**.
 
 ## **2. Preparação**
 
@@ -19,7 +21,7 @@ Para criar o diretório [`ecommerce`](https://github.com/heitorkobayashi/PB-HEIT
 
 ## **3. Criação do Script 1**
 
-Nesta etapa, no processo de criação do script, foi dada a preferência por desenvolvê-lo em etapas para garantir que o caminho estava correto e evitar surpresas ao final do código.
+Nesta etapa, no processo de criação do script, foi dada a preferência por desenvolvê-lo em estágios para garantir que o caminho desenvolvido estava correto, a fim de evitar surpresas ao final do código.
 
 ### **3.1. Criação dos subdiretórios**
 
@@ -27,7 +29,7 @@ O primeiro passo deste script foi a criação dos subdiretórios [`vendas`](http
 
 - Com o comando `cd` é definido onde o script será executado.
 - Sabendo que o script será realizado mais que uma vez, com o `mkdir -p` é possível realizar a criação da pasta vendas e prevenir erros futuros por conta da criação de diretórios já existentes, neste caso os diretórios `vendas` e `backup`. 
-- É importante ressaltar a utilização dos caminhos absolutos no script. Na Seção 7 este tema será mais abordado, pois foi uma das maiores dificuldades encontradas na realização deste código.
+- É importante ressaltar a utilização dos caminhos absolutos no script. Na Seção 7, este tema será aprofundado, pois foi uma das maiores dificuldades encontradas na realização deste código.
 
 ![imagem_02](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/02_codigo_criacao_subdiretorios.png) 
 
@@ -46,7 +48,7 @@ cd /home/heitorkobayashi/ecommerce/vendas/backup
 mv dados_de_vendas.csv backup-dados-$data.csv
 ```
 
-- Nota-se a utilização do `$`, que junto do `=` foi utilizado para atribuir valores a variáveis e substituir valores, como no caso da renomeação do arquivo de `backup` com a data atual do sistema.
+- Nota-se a utilização do `$`, que juntamente ao `=` foi utilizado para atribuir valores a variáveis e substituir valores, como no caso da renomeação do arquivo de `backup` com a data atual do sistema.
 
 ### **3.3. Extração de dados**
 
@@ -86,7 +88,7 @@ arquivo="relatorio-$data.txt"
 
 Agora, para que o relatório pudesse conter todas as informações que foram extraídas, foi utilizado o comando `cat`. Aqui, farei uma breve pausa para explicar a minha linha de raciocínio nessa escolha:
 
-- Durante as minhas pesquisas sobre como eu poderia colocar os dados extraídos dentro de um arquivo, eu vi diversos comandos para fazer isso, como o `echo`, `printf` e até mesmo o `awk`. Mas esses métodos não estavam fazendo muito sentido para mim. Vendo as aulas de linux lembrei do comando `cat xarquivo.txt >> yarquivo.txt` que é capaz de concatenar o conteúdo de um arquivo dentro de outro arquivo. Dessa forma, fui atrás para saber se existia algum jeito de fazer isso utilizando o `cat`. E não é que era possível? Depois de muita pesquisa, achei esse notação:
+- Durante as minhas pesquisas sobre como eu poderia colocar os dados extraídos dentro de um arquivo, eu me deparei com diversos comandos para fazer isso, como o `echo`, `printf` e até mesmo o `awk`. Mas esses métodos não estavam fazendo muito sentido para mim. Vendo as aulas de linux lembrei do comando `cat xarquivo.txt >> yarquivo.txt` que é capaz de concatenar o conteúdo de um arquivo dentro de outro arquivo. Dessa forma, fui atrás para saber se existia algum jeito de fazer isso utilizando o `cat`. E não é que era possível? Depois de muita pesquisa, achei esse notação:
 
     ```bash
     cat << END > "arquivo" 
@@ -97,7 +99,7 @@ Agora, para que o relatório pudesse conter todas as informações que foram ext
 
 Voltando ao que interessa, a escolha pelo pelo `cat` também foi motivada por outros fatores:
 
-- A facilidade de usar, o comando é muito intuitivo, de fácil leitura e possibilita a utilização de vários blocos de textos no próprio corpo do comando.
+- A facilidade de usar: o comando é muito intuitivo, de fácil leitura e possibilita a utilização de vários blocos de textos no próprio corpo do comando.
 - Com ele é possível inserir as variáveis que foram definidas anteriormente de forma simples. 
 
 
@@ -127,11 +129,11 @@ Para notificar o usuário de que o relatório foi gerado com sucesso, o comando 
 
 ### **3.5. Compressão do arquivo em zip e remoção dos arquivos `.csv`**
 
-Com o `zip` instalado no sistema, pode-se realizar a compressão do arquivo de backup e, posteriormente, a remoção dos arquivos `.csv`, conforme a imagem abaixo:
+Com o `zip` instalado no sistema, pode-se realizar a compressão do arquivo de backup e, posteriormente, a remoção dos arquivos `.csv`:
 
 ![imagem_06](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/06_zip_remocao_backup.png)
 
-A utilização do `zip -r` foi essencial para incluir todos os arquivos e subdiretórios dentro do diretório desejado: Ou melhor, utilizando os jargões técnicos, de forma recursiva (coisas que aprendemos na prática... por muitas tentativas o meu zip deu errado).
+A utilização do `zip -r` foi essencial para incluir todos os arquivos e subdiretórios dentro do diretório desejado, ou melhor, utilizando os termos técnicos, de forma **recursiva** _(coisas que aprendemos na prática... por muitas tentativas o meu zip deu errado)_.
 
 ### **3.6. Agendamento**
 
@@ -152,7 +154,7 @@ Com o teste sendo bem sucedido, bastava apenas a criação do Script 2 e o agend
 
 ## **4. Criação do Script 2**
 
-Por se tratar de um script mais simples comparado ao anterior, optei por, logo após,  desenvolvê-lo na sequência dos testes para ter todas as ferramentas em mãos antes da execução de todo o procedimento, assim, diminuindo os riscos que poderiam se suceder.
+Por se tratar de um script mais simples comparado ao anterior, optei por, logo após os testes, desenvolvê-lo para ter todas as ferramentas em mãos antes da execução de todo o procedimento. Dessa forma, os riscos que poderiam se suceder seriam diminuídos.
 
 ### **4.1. Código do Script 2**
 
@@ -160,7 +162,7 @@ A imagem abaixo mostra a criação do arquivo executável e a utilização do co
 
 ![imagem_12](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/12_script2_criacao.png)
 
-Sobre o código em si do [Script 2](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/desafio/entregaveis/ecommerce/consolidador_de_processamento_de_vendas.sh), podemos destacar: 
+Sobre o código em si do **[Script 2](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/desafio/entregaveis/ecommerce/consolidador_de_processamento_de_vendas.sh)**, podemos destacar: 
 
 ```bash
 #!/bin/bash
@@ -184,11 +186,11 @@ echo "O arquivo $arquivo_final foi gerado!"
 - A criação da variável `caminho_relatorios` para facilitar a utilização do caminho absoluto.
 - A definição da variável do relatório final.
 - A utilização do comando `cat` para a concatenação dos relatórios em apenas um arquivo, o `$arquivo_final`.
-- A notação utilizada para identificar os relatórios existentes no diretório `relatorio-*.txt`. O asterisco tem como função selecionar todos os arquivos existentes que possuem em seu nome a palavra"relatorio-" e que terminam em ".txt"
+- A notação utilizada para identificar os relatórios existentes no diretório `relatorio-*.txt`. O asterisco tem como função selecionar todos os arquivos existentes que possuem em seu nome a palavra "relatorio-" e que terminam em ".txt"
 
 ### **4.2. Teste de execução**
 
-Com o script pronto e com alguns relatórios gerados na pasta backup, era hora de testá-lo:
+Com o script finalizado e com alguns relatórios gerados na pasta backup, era hora de testá-lo:
 
 ![imagem_14](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/14_script2_teste_exec.png)
 
@@ -214,7 +216,7 @@ Para o primeiro dia não foi necessária a inserção de dados, então os result
 
 ### **6.2. Segundo, terceiro e quarto dias**
 
-Neste segundo dia, foi preciso inserir dados novos. Para garantir a permissão de alteração do arquivo `dados_de_vendas.csv`, o comando `chmod u+w` foi utilizado, conforme mostra a image abaixo:
+Neste segundo dia, foi preciso inserir dados novos. Para garantir a permissão de alteração do arquivo `dados_de_vendas.csv`, o comando `chmod u+w` foi utilizado, conforme mostra a imagem abaixo:
 
 ![imagem17](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/17_permissao_dados_dia2.png)
 
@@ -242,13 +244,13 @@ Pela imagem, percebe-se a criação do arquivo [`relatorio_final.txt`](https://g
 
 ## **7. Dificuldades e Considerações Finais**
 
-Enquanto redigia este README, me dei conta que estava passando a ideia de que as etapas foram fluídas entre elas. Claro, isto foi intencional, mas as coisas não aconteceram tão bem assim. Durante a realização deste desafio, encontrei algumas adversidades e listarei os processos que mais deram trabalho durante o seu desenvolvimento.
+Enquanto redigia este README, me dei conta que estava passando a ideia de que as etapas foram fluídas entre elas. Claro, isto foi intencional, mas as coisas não aconteceram tão bem assim. Durante a realização deste desafio, encontrei algumas adversidades e, a seguir, listarei os processos que mais deram trabalho durante o seu desenvolvimento.
 
 ### **7.1. Desenvolvimento do Script 1**
 
 A primeira dificuldade foi o desenvolvimento do primeiro script, com destaque para a extração dos dados e a criação do relatório. Foram dois dias de trabalho intenso, quebrando a cabeça e a cara para achar uma solução para o problema. 
 
-A meta era finalizar o script até segunda-feira (26/08/2024). Nesse dia, eu cheguei a finalizar e conseguia executar o script manualmente, mas infelizmente me deparei com um outro empecilho, o agendamento. 
+A meta era terminar o script até segunda-feira (26/08/2024). Nesse dia, eu cheguei a finalizar e conseguia executar o script manualmente, mas infelizmente me deparei com um outro empecilho, o **agendamento**. 
 
 ### **7.2. O agendamento e a utilização dos caminhos absolutos**
 
@@ -281,18 +283,20 @@ Vale ressaltar aqui a cooperação não só entre os membros da minha Squad, mas
 
 ## **8. Referências**
 
-Neste texto, fiz diversas afirmações que, obviamente, tiveram como base alguma fonte de pesquisa. Optei por não adotar o esquema de citações ao longo do texto para evitar que ele se tornasse massante, e acredito que não seria adequado neste formato. De qualquer forma, incluirei as fontes que utilizei para encontrar os comandos e para fundamentar teoricamente o conteúdo apresentado.
+Neste texto, fiz diversas afirmações que, obviamente, tiveram como base alguma fonte de pesquisa. Optei por não adotar o esquema de citações ao longo do texto para evitar que ele se tornasse massante, e acredito que não seria adequado neste formato.
 
-GEEKSFORGEEKS. **awk command in Unix/Linux with examples.** Disponível em: https://www.geeksforgeeks.org/awk-command-unixlinux-examples/. Acesso em: 24 aug. 2024.
+De qualquer forma, incluirei as fontes que utilizei para encontrar os comandos e para fundamentar teoricamente o conteúdo apresentado.
 
-KODEKLOUD. **EOF in Bash**. Disponível em: https://kodekloud.com/blog/eof-bash/. Acesso em: 25 ago. 2024.
+- GEEKSFORGEEKS. **awk command in Unix/Linux with examples.** Disponível em: https://www.geeksforgeeks.org/awk-command-unixlinux-examples/. Acesso em: 24 aug. 2024.
 
-LEARN LINUX TV. **How to use awk to process CSV files.** YouTube, 3 ago. 2021. Disponível em: https://youtu.be/oPEnvuj9QrI. Acesso em: 24 ago. 2024.
+- KODEKLOUD. **EOF in Bash**. Disponível em: https://kodekloud.com/blog/eof-bash/. Acesso em: 25 ago. 2024.
 
-LINUXHELP. **How to schedule a Cron Job to run a script on Ubuntu 16.04**. YouTube, 8 jun. 2018. Disponível em: https://www.youtube.com/watch?v=CIVI-DIzCFk. Acesso em: 26 ago. 2024.
+- LEARN LINUX TV. **How to use awk to process CSV files.** YouTube, 3 ago. 2021. Disponível em: https://youtu.be/oPEnvuj9QrI. Acesso em: 24 ago. 2024.
 
-PRACIANO, Elias. **Como adicionar a data atual ao nome de um arquivo no Bash.** 2017. Disponível em: https://elias.praciano.com/2017/04/como-adicionar-a-data-atual-ao-nome-de-um-arquivo-no-bash/#:~:text=Acompanhe%20mais%20alguns%20exemplos%20de,%2C%20hoje%3A%20%24nomearquivo. Acesso em: 24 ago. 2024.
+- LINUXHELP. **How to schedule a Cron Job to run a script on Ubuntu 16.04**. YouTube, 8 jun. 2018. Disponível em: https://www.youtube.com/watch?v=CIVI-DIzCFk. Acesso em: 26 ago. 2024.
 
-TOTVS DEVELOPERS. **Entendendo o crontab. Medium, 20 set. 2020**. Disponível em: https://medium.com/totvsdevelopers/entendendo-o-crontab-607bc9f00ed3. Acesso em: 26 ago. 2024.
+- PRACIANO, Elias. **Como adicionar a data atual ao nome de um arquivo no Bash.** 2017. Disponível em: https://elias.praciano.com/2017/04/como-adicionar-a-data-atual-ao-nome-de-um-arquivo-no-bash/#:~:text=Acompanhe%20mais%20alguns%20exemplos%20de,%2C%20hoje%3A%20%24nomearquivo. Acesso em: 24 ago. 2024.
 
-WDEV. **Cron, crontab e cronjob: agendando tarefas automáticas**. YouTube, 10 dez. 2020. Disponível em: https://youtu.be/TG--rQkZvGc. Acesso em: 26 de ago. 2024.
+- TOTVS DEVELOPERS. **Entendendo o crontab. Medium, 20 set. 2020**. Disponível em: https://medium.com/totvsdevelopers/entendendo-o-crontab-607bc9f00ed3. Acesso em: 26 ago. 2024.
+
+- WDEV. **Cron, crontab e cronjob: agendando tarefas automáticas**. YouTube, 10 dez. 2020. Disponível em: https://youtu.be/TG--rQkZvGc. Acesso em: 26 de ago. 2024.
