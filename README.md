@@ -36,8 +36,8 @@ Nesses 27 anos de vida, posso dizer que já experienciei um pouco de tudo. Levo 
 
 | Instituição de Ensino                   | Curso                                       | Data de conclusão            |
 | :---------------------------------------| :-------------------------------------------| :----------------------------|
-|  Academia Internacional de Cinema       | Direção de Fotografia                       | abr de 2022 - jun de 2022    |
-|  Centro Universitário Senac             | Operação de Câmera                          | fev de 2022 - jul de 2022    |
+|  Academia Internacional de Cinema       | Direção de Fotografia                       | abr 2022 - jun 2022    |
+|  Centro Universitário Senac             | Operação de Câmera                          | fev 2022 - jul 2022    |
 | Universidade de São Paulo               | Bacharelado em Letras                       | 2016 - 2020 _(interrompido)_ |
 | Escola de Música do Estado de São Paulo | Contrabaixo elétrico                        | 2012 - 2013                  |
 | Instituto Técnico de Barueri            | Ensino Médio Técnico: Redes de Computadores | 2011 - 2013                  |

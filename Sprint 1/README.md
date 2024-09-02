@@ -6,13 +6,13 @@ As instruções dadas, além da realização do desafio, eram as de finalizar os
 
 # **Informações**
 
-Como essa Sprint não teve muitos exercícios além do desafio principal, eu não possuo nada mais a informar além do que já redigi no [Readme](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/desafio/README.md) de desafio. O que posso adicionar são algumas decisões tomadas dentro da minha _Squad 05_. 
+Como essa Sprint não teve muitos exercícios além do desafio principal, eu não possuo nada mais a informar além do que já redigi no **[Readme](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/desafio/README.md)** de desafio. O que posso adicionar são algumas decisões tomadas dentro da minha _Squad 05_. 
 
 Criamos um nome para a nossa Squad: **DataHero**. Coincidentemente (ou não), _"Hero"_ possui as iniciais dos nomes de todos os integrantes. 
 
 Durante o decorrer dos dias, estávamos enfrentando um problema de comunicação sobre as atualizações de cada membro da equipe. No início utlizávamos apenas o grupo de whatsapp para todo o tipo de comunicação, dessa forma, as mensagens importantes ficavam perdidas.
 
-Então eu sugeri a criação de um Trello para adequação das informações da Squad, assim poderíamos ter registrado a nosso evolução durante o programa. A escolha da ferramenta se deu pela fácil curva de aprendizado que o Trello possui, além de ser bem intuitivo para iniciantes. Por meio dessa plataforma nós fazemos as atualizações diárias da nossa Squad, compartilhamos informações úteis e o nosso progresso na resolução do desafio.
+Então eu sugeri a criação de um **Trello** para adequação das informações da Squad, assim poderíamos ter registrado a nosso evolução durante o programa. A escolha da ferramenta se deu pela fácil curva de aprendizado que o Trello possui, além de ser bem intuitivo para iniciantes. Por meio dessa plataforma nós fazemos as atualizações diárias da nossa Squad, compartilhamos informações úteis e o nosso progresso na resolução do desafio.
 
 ![imagem_trello](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/trello_squad.png)
 
