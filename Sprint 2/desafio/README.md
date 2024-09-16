@@ -117,7 +117,7 @@ Na imagem abaixo, podemos ver a criação das tabelas:
 
 ![imagem_09](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%202/evidencias/09_criacao_tabelas_dim.png)
 
-### **5.2. Criação da tabela fato**
+### **5.2. Criação da Tabela Fato**
 
 A tabela fato foi organizada da seguinte forma:
 
@@ -133,7 +133,7 @@ Após todas essas etapas, o resultado obtido foi este:
 
 ![imagem_11](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%202/evidencias/11_modelo_dimensional.png)
 
-### **5.4. Criação dos views**
+### **5.4. Criação dos Views**
 
 As views são consultas que podem ser tratadas como tabelas virtuais, permitindo o acesso simplificado a dados complexos. 
 
@@ -147,7 +147,7 @@ Na imagem abaixo, podemos ver o código para criação dessas views. A última i
 
 ![imagem_14](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%202/evidencias/14_resultado_view_tempo.png)
 
-### **6. Dificuldades e Considerações finais**
+### **6. Dificuldades e Considerações Finais**
 
 Durante o desenvolvimento do desafio, em alguns momentos, enfrentei algumas dificuldades que impactaram o progresso.
 
