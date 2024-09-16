@@ -1,10 +1,11 @@
 select
-    vd.cdcli,
-    vd.nmcli, 
-    sum(vd.qtd * vd.vrunt) as gasto
+    vd.cdpro,
+    vd.nmcanalvendas,
+    vd.nmpro,
+    sum(vd.qtd) as quantidade_vendas
 from tbvendas as vd
 where vd.status = 'Concluído'
-group by vd.cdcli, vd.nmcli
-order by gasto desc
-limit 1
-
+    and (vd.nmcanalvendas = 'Ecommerce' or vd.nmcanalvendas = 'Matriz')
+group by vd.cdpro, vd.nmcanalvendas, vd.nmpro
+order by quantidade_vendas asc
+limit 10
