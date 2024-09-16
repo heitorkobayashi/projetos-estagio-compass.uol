@@ -28,7 +28,7 @@ A primeira forma normal 1FN já estava realizada, então bastou atentar-se para 
 - tb_carro: `idCarro`, `marcaCarro`, `modeloCarro`, `kmCarro`, `anoCarro`, `classiCarro`, `idCombustivel`
 - tb_combustível: `idCombustivel`, `tipoCombustivel`
 
-A 3FN não foi necessário ser executada. Na próxima imagem podemos ver a 2FN em ação:
+A 3FN não precisou ser executada. Na próxima imagem podemos ver a 2FN em ação:
 
 ![imagem_normalizacao](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%202/desafio/analise_e_normalizacao.png)
 
