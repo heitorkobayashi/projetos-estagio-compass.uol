@@ -1,28 +1,27 @@
 # **Instruções**
 
-Essa primeira sprint teve como objetivo o nivelamento de conhecimento sobre versionamento de código via Git, sobre a linguagem Markdown e a utilização do sistema Linux. A realização dos cursos foi de extrema importância não só para a realização do desafio, mas também, para o nosso aprendizado. 
+A segunda sprint teve como objetivo o aprofundamento em SQL e modelagem de dados. A realização dos cursos e dos exercícios foi de extrema importância para fortalecimento do conhecimento obtido. As instruções dadas, além da realização do desafio, eram as de realizar os exercícios solicitados e a conclusão do primeiro curso da AWS, Sales Accreditation.
 
-As instruções dadas, além da realização do desafio, eram as de finalizar os cursos de Git e Linux no prazo determinado, sem contar a participação ativa nas dailys e monitorias técnicas. 
+# **Exercícios**
 
-# **Informações**
+Nesta sprint foram realizados diversas atividades com diferentes níveis de dificuldade. Todos os exercícios se encontram na pasta [evidências](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/tree/main/Sprint%202/exercicios).
 
-Como essa Sprint não teve muitos exercícios além do desafio principal, eu não possuo nada mais a informar além do que já redigi no **[Readme](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/desafio/README.md)** de desafio. O que posso adicionar são algumas decisões tomadas dentro da minha _Squad 05_. 
+Nós podemos dividí-los nas seguintes etapas:
 
-Criamos um nome para a nossa Squad: **DataHero**. Coincidentemente (ou não), _"Hero"_ possui as iniciais dos nomes de todos os integrantes. 
+## Etapa 1: Seção 03 - Caso de Estudo "Biblioteca"
 
-Durante o decorrer dos dias, estávamos enfrentando um problema de comunicação sobre as atualizações de cada membro da equipe. No início utlizávamos apenas o grupo de whatsapp para todo o tipo de comunicação, dessa forma, as mensagens importantes ficavam perdidas.
+Nesta etapa, foi apresentado um Diagrama Entidade-Relacionamento de uma base de dados chamada "Biblioteca". Assim, praticamos alguns conceitos de manipulação de dados em SQL, como a realização de queries simples e a utilização de diferentes tipos de `joins`.
 
-Então eu sugeri a criação de um **Trello** para adequação das informações da Squad, assim poderíamos ter registrado a nosso evolução durante o programa. A escolha da ferramenta se deu pela fácil curva de aprendizado que o Trello possui, além de ser bem intuitivo para iniciantes. Por meio dessa plataforma nós fazemos as atualizações diárias da nossa Squad, compartilhamos informações úteis e o nosso progresso na resolução do desafio.
 
-![imagem_trello](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/trello_squad.png)
 
-- Como não é nada oficial, eu tomei a liberdade de inserir uns gifs para dar uma descontraída :)
-- Aos poucos vamos otimizando a ferramenta para utilizá-la da melhor forma possível. 
+## Etapa 2: Seção 04 - Caso de Estudo "Loja"
 
-# **Anotações**
+Nesta etapa, foi apresentado um Diagrama Entidade-Relacionamento de uma base de dados chamada "Loja", mais complexo que a anterior. Dessa forma, praticamos alguns conceitos de manipulação de dados em SQL, como a realização de subqueries, funções agregadas, além de manipulação de dados e tabelas.
 
-Para realizar as anotações, eu tenho o costume de usar o **OneNote**, uma ferramenta que me auxilia durante o processo de aprendizado e na realização de tarefas. 
+## Etapa 3: Seção 06 - Exportação de Dados
 
-![anotacoes](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%201/evidencias/Anotacoes_01.png)
+A atividade tinha como objetivo a extração e exportação de dados. Com os bancos de dados anteriores, foi solicitado a exportação de duas queries, respectivamente. 
 
-Essas anotações acabam se tornando metódicas, além de levar mais tempo para a realização dos cursos, mas é por esse estilo de estudo que dou preferência, pois acabo absorvendo melhor o conteúdo e organizando de forma eficiente o meu progresso.
+Para 
+
+# **Evidências**
