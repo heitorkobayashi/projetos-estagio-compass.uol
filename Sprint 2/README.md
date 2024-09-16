@@ -43,17 +43,19 @@ Ao total foram 16 exercícios realizados dentro da Udemy. Para não ficar muito 
 ### Seção 03
 
 ![imagem_E05](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%202/evidencias/secao_03_E05.png)
+- Nota-se a utilização de `joins` para a realização do exercício.
 
 ### Seção 04
 
-![imagem_e08]()
+![imagem_e08](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%202/evidencias/secao_04_E08.png)
+- Nota-se a utilização de uma subquerie para realização do exercício.
 
 ### Seção 06
 
-Na imagem abaixo podemos ver o resultado da query. Para visualizar o arquivo `.csv` **[clique aqui](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%202/exercicios/secao_6_etapa_1.csv)**.
+Na imagem abaixo podemos ver o resultado da query solicitada. Para visualizar o arquivo `.csv` **[clique aqui](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%202/exercicios/secao_6_etapa_1.csv)**.
 
 ![imagem_secao_06_1](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%202/evidencias/secao_06_etapa_01.png)
 
-Na imagem abaixo podemos ver o resultado da query. Para visualizar o arquivo `.csv` **[clique aqui](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%202/exercicios/secao_6_etapa_2.csv)**.
+Na imagem abaixo podemos ver o resultado da query solicitada. Para visualizar o arquivo `.csv` **[clique aqui](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%202/exercicios/secao_6_etapa_2.csv)**.
 
 ![imagem_secao_06_2](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%202/evidencias/secao_06_etapa_02.png)
