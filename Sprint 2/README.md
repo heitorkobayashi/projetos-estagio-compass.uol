@@ -38,7 +38,7 @@ Neste segundo exercício, foi solicitado a exportação do resultado da query qu
 
 # **Evidências**
 
-Ao total foram 16 exercícios realizados dentro da Udemy. Para não ficar muito extenso, vou listar uma evidência de cada etapa. Lembrando que as queries dos exercícíos estão **[neste link](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/tree/main/Sprint%202/exercicios)**
+Ao total foram 16 exercícios realizados dentro da Udemy. Para não ficar muito extenso, vou listar uma evidência de cada etapa. Lembrando que as queries dos exercícíos estão **[neste link](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/tree/main/Sprint%202/exercicios)**.
 
 ### Seção 03
 

@@ -8,7 +8,7 @@ Dessa forma, o desafio se dividiu em 2 etapas:
 
 1. Normalizar Base de Dados: **[Clique aqui](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%202/desafio/etapa_1/script_modelo_relacional.sql)** para acessar o código fonte do Modelo Relacional.
 
-2. Modelo Dimensional baseado no Modelo Relacional: **[Clique aqui](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%202/desafio/etapa_2/script_modelo_dimensional.sql)** para acessar o código fonte do Modelo Relacional.
+2. Modelo Dimensional baseado no Modelo Relacional: **[Clique aqui](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%202/desafio/etapa_2/script_modelo_dimensional.sql)** para acessar o código fonte do Modelo Dimensional.
 
 ## **2. Preparação**
 
@@ -149,19 +149,17 @@ Na imagem abaixo, podemos ver o código para criação dessas views. A última i
 
 ### **6. Dificuldades e Considerações Finais**
 
-Durante o desenvolvimento do desafio, em alguns momentos, enfrentei algumas dificuldades que impactaram o progresso.
+Durante o desenvolvimento do desafio, em alguns momentos, enfrentei algumas dificuldades que impactaram o progresso. Uma das primeiras adversidades foi a inserção dos dados nas tabelas. Embora eu tivesse planejado automatizar boa parte do processo, nem tudo saiu conforme o esperado. Algumas formas de automação, como a utilização do `replace`,  não funcionaram. Isso me obrigou a encontrar uma maneira manual de lidar com a inserção. Com isso, essa solução trouxe desafios adicionais.
 
-Uma das primeiras adversidades foi a inserção dos dados nas tabelas. Embora eu tivesse planejado automatizar boa parte do processo, nem tudo saiu conforme o esperado. Algumas rotinas de automação não funcionaram. Isso me obrigou a encontrar uma maneira manual de lidar com a inserção, o que, além de aumentar o tempo necessário, exigiu um cuidado maior para garantir a consistência e integridade das informações. Essa solução alternativa trouxe desafios adicionais, mas foi essencial para manter o fluxo de trabalho.
+Outro ponto de dificuldade foi a compreensão do modelo dimensional. Esse modelo me pareceu bastante abstrato no início, o que demandou tempo de estudo e aprofundamento. A transição entre os dois modelos não foi simples, exigindo que eu reconsiderasse algumas abordagens. O processo de assimilação desses novos conceito foi mais demorado do que eu previa.
 
-Outro ponto de dificuldade foi a compreensão do modelo dimensional. Vindo de um contexto mais familiar com o modelo relacional, o modelo dimensional me pareceu bastante abstrato no início, o que demandou tempo de estudo e aprofundamento. A transição entre os dois modelos não foi simples, exigindo que eu reconsiderasse algumas abordagens, principalmente no que diz respeito ao relacionamento entre as tabelas e à forma de organizar as informações para análise posterior. O processo de assimilação desse novo conceito foi mais demorado do que eu previa.
+O uso do DBeaver trouxe vários desafios. Mesmo sendo uma boa ferramenta, a manipulação de dados nem sempre foi tão "intuitiva". Em vários momentos enfrentei dificuldades para realizar operações que, em outras ferramentas, seriam mais simples. Isso aumentou a curva de aprendizado e exigiu mais tempo para ajustes e correções de pequenos erros. Apesar disso, consegui realizar as tarefas necessárias, mesmo não estando totalmente satisfeito com elas, principalmente sobre a elaboração desse readme.
 
-O uso do DBeaver trouxe vários desafios. Mesmo sendo uma boa ferramenta, a manipulação de dados nem sempre foi tão intuitiva. Em vários momentos enfrentei dificuldades para realizar operações que, em outras ferramentas, seriam mais simples. Isso aumentou a curva de aprendizado e exigiu mais tempo para ajustes e correções de pequenos erros. Apesar desses entraves, consegui realizar as tarefas necessárias, mesmo não estando totalmente satisfeito com elas, principalmente sobre a elaboração desse readme.
-
-Apesar dos desafios enfrentados ao longo do desafio, considero que ele foi uma oportunidade rica de aprendizado. A inserção manual de dados, o estudo do modelo dimensional e o uso de ferramentas como o DBeaver me ajudaram a desenvolver uma visão mais técnica e prática sobre modelagem de dados. Considero que o processo me trouxe habilidades valiosas que transpassam as habilidades técnicas. Mais uma vez a comunicação com as Squads e as monitorias foram de muito valor.
+Mesmo com todos essas complicações, considero que o desafio foi uma grande oportunidade de aprendizado. Considero que o processo me trouxe habilidades valiosas que transpassam algumas habilidades técnicas. Mais uma vez a comunicação com as Squads e as monitorias foram de muito valor.
 
 ## **8. Referências**
 
-Além do próprio conteúdo contido na Udemy, tanto do curso de SQL quanto das apresentações contidas nos slides, utilizei das seguintes referências:
+Além do próprio conteúdo contido na Udemy, tanto do curso de SQL quanto das apresentações dos slides, utilizei as seguintes referências:
 
 - BÓSON TREINAMENTOS. **Modelagem de Dados - O Modelo Relacional - Introdução.** YouTube, 23 fev. 2021. Disponível em: https://www.youtube.com/watch?v=hGstS10kCPM. Acesso em: 4 set. 2024.
 
