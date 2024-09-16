@@ -157,7 +157,7 @@ Outro ponto de dificuldade foi a compreensão do modelo dimensional. Vindo de um
 
 O uso do DBeaver trouxe vários desafios. Mesmo sendo uma boa ferramenta, a manipulação de dados nem sempre foi tão intuitiva. Em vários momentos enfrentei dificuldades para realizar operações que, em outras ferramentas, seriam mais simples. Isso aumentou a curva de aprendizado e exigiu mais tempo para ajustes e correções de pequenos erros. Apesar desses entraves, consegui realizar as tarefas necessárias, mesmo não estando totalmente satisfeito com elas, principalmente sobre a elaboração desse readme.
 
-Apesar dos desafios enfrentados ao longo do desafio, considero que ele foi uma oportunidade rica de aprendizado. A inserção manual de dados, o estudo do modelo dimensional e o uso de ferramentas como o DBeaver me ajudaram a desenvolver uma visão mais técnica e prática sobre modelagem de dados. Embora o tempo tenha sido apertado, considero que o processo me trouxe habilidades valiosas que transpassam as habilidades técnicas. Mais uma vez a comunicação com as Squads e as monitorias foram de muito valor.
+Apesar dos desafios enfrentados ao longo do desafio, considero que ele foi uma oportunidade rica de aprendizado. A inserção manual de dados, o estudo do modelo dimensional e o uso de ferramentas como o DBeaver me ajudaram a desenvolver uma visão mais técnica e prática sobre modelagem de dados. Considero que o processo me trouxe habilidades valiosas que transpassam as habilidades técnicas. Mais uma vez a comunicação com as Squads e as monitorias foram de muito valor.
 
 ## **8. Referências**
 
