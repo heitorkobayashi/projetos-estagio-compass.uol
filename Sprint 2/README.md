@@ -20,7 +20,7 @@ Nesta etapa, foi apresentado um Diagrama Entidade-Relacionamento de uma base de 
 
 ## Etapa 3: Seção 06 - Exportação de Dados
 
-A atividade tinha como objetivo a extração e exportação de dados. Com os bancos de dados anteriores, foi solicitado a exportação de duas queries, respectivamente. 
+A atividade tinha como objetivo a extração e exportação de dados a partir do banco de dados  anteriores, foi solicitado a exportação de duas queries, respectivamente. 
 
 Para 
 

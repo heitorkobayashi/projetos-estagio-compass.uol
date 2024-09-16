@@ -6,9 +6,9 @@ Este desafio teve como objetivo normalizar uma base de dados aplicando as regras
 
 Dessa forma, o desafio se dividiu em 2 etapas:
 
-1. Normalizar Base de Dados: **[Clique aqui](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%202/desafio/scripts/script_modelo_relacional.sql)** para acessar o código fonte do Modelo Relacional.
+1. Normalizar Base de Dados: **[Clique aqui](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%202/desafio/etapa_1/script_modelo_relacional.sql)** para acessar o código fonte do Modelo Relacional.
 
-2. Modelo Dimensional baseado no Modelo Relacional: **[Clique aqui](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%202/desafio/scripts/script_modelo_dimensional.sql)** para acessar o código fonte do Modelo Relacional.
+2. Modelo Dimensional baseado no Modelo Relacional: **[Clique aqui](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%202/desafio/etapa_2/script_modelo_dimensional.sql)** para acessar o código fonte do Modelo Relacional.
 
 ## **2. Preparação**
 
@@ -30,7 +30,7 @@ A primeira forma normal 1FN já estava realizada, então bastou atentar-se para 
 
 A 3FN não precisou ser executada. Na próxima imagem podemos ver a 2FN em ação:
 
-![imagem_normalizacao](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%202/desafio/analise_e_normalizacao.png)
+![img_analise_normalizacao](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%202/desafio/etapa_1/analise_e_normalizacao.png)
 
 Para facilitar a visualização desses dados, nesse primeiro momento, optei pela utilização do [`dbdiagram.io`](https://dbdiagram.io/):
 
@@ -137,7 +137,7 @@ Após todas essas etapas, o resultado obtido foi este:
 
 As views são consultas que podem ser tratadas como tabelas virtuais, permitindo o acesso simplificado a dados complexos. 
 
-Dessa forma, para facilitação dos dados na tabelas do modelo dimensional, foram criadas views de cada tabela. Você pode conferí-las **[neste link](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%202/desafio/scripts/script_views_modelo_dimensional.sql)**
+Dessa forma, para facilitação dos dados na tabelas do modelo dimensional, foram criadas views de cada tabela. Você pode conferí-las **[neste link](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%202/desafio/etapa_2/script_views_modelo_dimensional.sql)**
 
 Na imagem abaixo, podemos ver o código para criação dessas views. A última imagem é o resultado de uma delas.
 
