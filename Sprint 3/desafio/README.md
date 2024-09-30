@@ -2,11 +2,11 @@
 
 ## **1. Objetivos**
 
-Este desafio teve como objetivo ler o arquivo de estatísticas da _Play Store_, o `googleplaystore.csv`, processar e gerar os gráficos de análise solicitados através do Jupyter.  
+Este desafio teve como objetivo ler o arquivo de estatísticas da _Play Store_, o [`googleplaystore.csv`](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%203/desafio/entregaveis/googleplaystore.csv), processar e gerar os gráficos de análise solicitados através do Jupyter.  
 
 ## **2. Preparação**
 
-Para a resolução do desafio, foi necessário a preparação do ambiente. Optei por utilizar o Jupyter dentro do VS Code por estar familiarizado com o editor. Acesse o código [clicando aqui](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%203/desafio/entregaveis/desafio.ipynb) 
+Para a resolução do desafio, foi necessário a preparação do ambiente. Optei por utilizar o Jupyter dentro do VS Code por estar familiarizado com o editor. Acesse o código [clicando aqui](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%203/desafio/entregaveis/desafio.ipynb).
 
 ## **3. Desenvolvimento**
 
@@ -156,9 +156,9 @@ Para criar um gráfico mostrando o número total de instalações ao longo do te
 
 ## **5. Considerações finais**
 
-Durante o desenvolvimento deste desafio, enfrentei algumas dificuldades que impactaram no meu progresso e aprendizado. Uma das primeiras adversidades foi a manipulação dos dados na biblioteca Pandas. Embora eu tivesse uma compreensão básica de como realizar operações como agrupamento e filtragem, algumas operações não saíram conforme o esperado. Isso me forçou a investigar mais a fundo as funcionalidades do Pandas e a adotar abordagens diferentes.
+Durante o desenvolvimento deste desafio, enfrentei algumas dificuldades que impactaram no meu progresso. Uma das primeiras adversidades foi a manipulação dos dados na biblioteca Pandas. Embora eu tivesse uma compreensão básica de como realizar operações como agrupamento e filtragem, algumas operações não saíram conforme o esperado. Isso me forçou a investigar mais a fundo as funcionalidades da biblioteca e a adotar abordagens diferentes.
 
-Outro ponto desafiador foi a criação de visualizações eficazes. A utilização dos gráficos com o Matplotlib foi fundamental, mas bem dificultosa em relação à formatação de eixos. Entretanto, percebo que aprendi a importância de escolher cores e formatos que facilitassem a interpretação dos dados, um aspecto que inicialmente subestimei.
+Outro ponto desafiador foi a criação de visualizações eficazes. A utilização dos gráficos com o Matplotlib foi fundamental, mas bem dificultosa em relação à formatação de eixos. Entretanto, aprendi a importância de escolher cores e formatos que facilitassem a interpretação dos dados, um aspecto que inicialmente foi subestimado.
 
 A compreensão da notação correta e das unidades de medida, como bilhões e milhões foi bem desafiador. Entendo que não era algo crucial, mas me dediquei para conseguir entregar esses eixos corretamente formatados.
 
@@ -171,11 +171,3 @@ A compreensão da notação correta e das unidades de medida, como bilhões e mi
 - HASHTAG TREINAMENTOS. **Minicurso Python para Automação.** Disponível em: https://pages.hashtagtreinamentos.com/minicurso-python-automacao-obrigado?blog=1n4033rer&video=3dep762tr. Acesso em: 23 set. 2024.
 
 - MATPLOTLIB. **Colormaps in Matplotlib.** Disponível em: https://matplotlib.org/stable/users/explain/colors/colormaps.html. Acesso em: 25 set. 2024.
-
-
-
-
-
-
-
-
