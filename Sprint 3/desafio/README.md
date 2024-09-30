@@ -6,7 +6,7 @@ Este desafio teve como objetivo ler o arquivo de estatísticas da _Play Store_, 
 
 ## **2. Preparação**
 
-Para a resolução do desafio, foi necessário a preparação do ambiente. Optei por utilizar o Jupyter dentro do VS Code por estar familiarizado com o editor. 
+Para a resolução do desafio, foi necessário a preparação do ambiente. Optei por utilizar o Jupyter dentro do VS Code por estar familiarizado com o editor. Acesse o código [clicando aqui](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%203/desafio/entregaveis/desafio.ipynb) 
 
 ## **3. Desenvolvimento**
 
