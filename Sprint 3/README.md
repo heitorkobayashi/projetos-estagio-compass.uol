@@ -27,17 +27,17 @@ Nesta etapa, foram realizados 5 exercícios envolvendo condicionais, listas e fu
 
 Nesta etapa, foram realizados 20 exercícios envolvendo condicionais, classes, listas, manipulação de arquivos `.txt` e `.json`, definição de funções e muito mais. Abaixo vou incluir algumas imagens demonstrando alguma das atividades chaves.
 
-![secao_4_21](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%203/evidencias/secao_3_exercicio_21_parte_1.png)
+![secao_4_21](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%203/evidencias/secao_4_exercicio_21_parte_1.png)
 
-![secao_4_15](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%203/evidencias/secao_3_exercicio_15_parte_2.png)
+![secao_4_15](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%203/evidencias/secao_4_exercicio_15_parte_2.png)
 
 - Exercícios pediam a implementação de classes.
 
-![secao_4_11](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%203/evidencias/secao_3_exercicio_11_parte_2.png)
+![secao_4_11](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%203/evidencias/secao_4_exercicio_11_parte_2.png)
 
 - Um tipo de exercício que pedia manipulação de arquivos, no caso o arquivo era em `.json`.
 
-![secao_4_13](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%203/evidencias/secao_3_exercicio_13_parte_2.png)
+![secao_4_13](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%203/evidencias/secao_4_exercicio_13_parte_2.png)
 
 - Esse exercício foi complicado, pois demorou muito tempo para descobrir que o resultado precisava do `end=''`.
 
