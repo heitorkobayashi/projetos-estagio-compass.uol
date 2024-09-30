@@ -1,8 +1,10 @@
 # **Instruções**
 
-A terceira sprint teve como objetivo o aprofundamento em python, como os conceitos fundamentais, estruturas de controle, manipulação de arquivos, funções, programação orientada a objetos e muito mais. Alguns exercícios abordaram programação estruturada, funcional e fundamento de a aplicação e fundamentos de ETL. Com a resolução do desafio, foram abordados os conceitos de importação de bibliotecas, utilização do ambiente Jupyter, criação e exportação de gráficos e listas. 
+A terceira sprint teve como objetivo o aprofundamento em Python, abordando os conceitos fundamentais, estruturas de controle, manipulação de arquivos, funções, programação orientada a objetos e muito mais. 
 
-Fora de python, a spirnt abordou o curso AWS Partner: Cloud Economics, em que foi abordado os aspectos econômicos do uso da nuvem AWS.
+Alguns exercícios abordaram programação estruturada, programação funcional e a aplicação dos fundamentos de ETL. Com a resolução do desafio, foram abordados os conceitos de importação de bibliotecas, utilização do ambiente Jupyter, criação e exportação de gráficos e listas. 
+
+Fora de Python, a sprint abordou o curso _[AWS Partner: Cloud Economics](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%203/certificados/AWS_Course_Completion_Certificate_HeitorKobayashi.pdf)_, em que foi abordado os aspectos econômicos do uso da nuvem AWS.
 
 # **Exercícios**
 
@@ -44,26 +46,37 @@ Nesta etapa, foram realizados 20 exercícios envolvendo condicionais, classes, l
 
 Essa etapa tinha como objetivo a aplicação de fundamentos de ETL, utilizando Python puro como recurso. 
 
-Foi disponibilizado o arquivo [actors.csv](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%203/exercicios/secao_5/actors.csv). Com ele, era necessário criar 5 novos arquivos em `.txt` a partir de scripts, sem a utilização de bibliotecas como Pandas, Polars, NumPy, CSV, entre outras.
+Foi disponibilizado o arquivo **[actors.csv](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%203/exercicios/secao_5/actors.csv)**. Com ele, era necessário criar 5 novos arquivos em `.txt` a partir de scripts, sem a utilização de bibliotecas como Pandas, Polars, NumPy, CSV, entre outras.
 
 Os códigos desses scripts você pode encontrar **[aqui](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/tree/main/Sprint%203/exercicios/secao_5)**.
 
 Abaixo, segue algumas evidências dos scripts criados:
 
+![secao5_1](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%203/evidencias/secao_5_script_1.png)
 
+![secao5_2](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%203/evidencias/secao_5_script_2.png)
 
-Foi  foram realizados 20 exercícios envolvendo condicionais, classes, listas, manipulação de arquivos `.txt` e `.json`, definição de funções e muito mais. Abaixo vou incluir algumas imagens demonstrando alguma das atividades chaves.
+![secao5_3](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%203/evidencias/secao_5_script_3.png)
 
-
+Este foi o exercício mais trabalhoso da Sprint. Acredito que até mesmo mais trabalhoso do que o Desafio, principalmente por conta da lógica utilizada nos loops e na criação da função `limpar_dados`.
 
 
 # **Evidências**
 
-Ao total foram 25 exercícios realizados dentro da Udemy. Para não ficar muito extenso, vou listar algumas evidências de cada etapa. Lembrando que as queries dos exercícíos estão **[neste link](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/tree/main/Sprint%202/exercicios)**.
+Além das evidências listadas nos tópicos anteriores, adicionarei mais algumas aqui para constatar as resoluções:
 
-### **Seção 03**
+![secao_3_4](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%203/evidencias/secao_3_exercicio_04_parte_1.png)
 
+- Exercício 04 da Seção 03.
 
+![secao4_23](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%203/evidencias/secao_4_exercicio_23_parte_1.png)
 
-### **Seção 06**
+- Exercício 23 da Seção 04.
 
+![secao4_22](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%203/evidencias/secao_4_exercicio_22_parte_1.png)
+
+- Exercício 22 da Seção 04.
+
+![secao_5_5](https://github.com/heitorkobayashi/PB-HEITOR-KOBAYASHI/blob/main/Sprint%203/evidencias/secao_5_script_4.png)
+
+- Script 05 da Seção 05.
