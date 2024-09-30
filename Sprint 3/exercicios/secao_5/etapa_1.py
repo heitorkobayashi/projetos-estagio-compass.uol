@@ -45,4 +45,3 @@ with open('etapa_1.txt', 'w') as resultado_arquivo:
     resultado_arquivo.write(f"{ator} possui o maior numero de filmes: {maior_numero_filmes} filmes.")
 
 print("Resultado salvo no arquivo 'etapa_1.txt'")
-
