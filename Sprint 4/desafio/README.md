@@ -57,4 +57,10 @@ E agora, o container em execução:
 
 ## **4. Considerações finais**
 
-Durante o desenvolvimento deste desafio, não enfrentei dificuldades. O maior desafio foi a criação do script da terceira etapa, em que precisou ser feito uma pesquisa sobre algoritmos de segurança e suas aplicações. E é exatamente por isso que esse readme está menor do que os outros.
+Durante o desenvolvimento deste desafio não enfrentei dificuldades. A parte mais complicada foi a criação do script da terceira etapa, pois nunca tinha trabalhado com algoritmos _SHA_ e _hashs_, então precisou ser feito uma breve pesquisa sobre esses algoritmos de segurança e suas aplicações. 
+
+## **5. Referências**
+
+- BRILLIANT. **Secure Hashing Algorithms (SHA)**. Disponível em: https://brilliant.org/wiki/secure-hashing-algorithms/. Acesso em: 5 oct. 2024.
+
+- NEURALNINE. **Hashing in Python: Using Hashlib Library for Secure Hashing**. Disponível em: https://www.youtube.com/watch?v=i-h0CtKde6w. Acesso em: 5 out. 2024.
