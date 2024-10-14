@@ -57,4 +57,4 @@ E agora, o container em execução:
 
 ## **4. Considerações finais**
 
-Durante o desenvolvimento deste desafio, não enfrentei dificuldades. O maior desafio foi a criação do script da terceira etapa, em que precisou ser feito uma pesquisa sobre algoritmos de segurança e suas aplicações. 
+Durante o desenvolvimento deste desafio, não enfrentei dificuldades. O maior desafio foi a criação do script da terceira etapa, em que precisou ser feito uma pesquisa sobre algoritmos de segurança e suas aplicações. E é exatamente por isso que esse readme está menor do que os outros.
