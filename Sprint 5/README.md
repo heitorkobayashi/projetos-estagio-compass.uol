@@ -2,7 +2,7 @@
 
 A quinta sprint teve como objetivo o aprofundamento em AWS e a pratica de ferramentas e conceitos como S3 e EC2.
 
-A sprint abordou um jogo chamado Cloud Quest, em que realizamos práticas em ambiente AWS.
+A sprint abordou um jogo chamado Cloud Quest em que realizamos práticas em ambiente AWS.
 
 # **Certificados**
 
@@ -15,13 +15,13 @@ Acesse as evidências dos exercícios através do seguinte link: **[Evidências 
 
 Nesta sprint foi realizado 1 exercício que continham as seguintes etapas: 
 
-- 1. Criação de um bucket
-- 2. Habilitar hospedagem de site estático
-- 3. Editar as configurações do Bloqueio de acesso público
-- 4. Adicionar política de bucket que torna o conteúdo do bucket publicamente disponível
-- 5. Configurar um documento de índice
-- 6. Configurar documento de erros
-- 7. Testar o endpoint do site
+- Criação de um bucket
+- Habilitar hospedagem de site estático
+- Editar as configurações do Bloqueio de acesso público
+- Adicionar política de bucket que torna o conteúdo do bucket publicamente disponível
+- Configurar um documento de índice
+- Configurar documento de erros
+- Testar o endpoint do site
 
 Abaixo, seguem algumas evidencias dos exercícios:
 
