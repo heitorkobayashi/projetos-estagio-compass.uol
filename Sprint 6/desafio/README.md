@@ -11,6 +11,8 @@ Clique nos seguintes links para acessar os respectivos códigos e arquivos:
 - [Script Python](/Sprint%206/desafio/entrega_1/desafio_sprint06_script.py)
 - [Dockerfile](/Sprint%206/desafio/entrega_1/Dockerfile)
 
+Obs.: Os arquivos `series.csv` e `movies.csv` não se encontram no repositório pois eles são muito pesados e estava dando erro ao commitá-los.
+
 
 ## **2. Definição de Tema**
 
