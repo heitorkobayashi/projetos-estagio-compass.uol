@@ -56,6 +56,6 @@ Abaixo, seguem algumas evidencias dos exercícios:
 
 # **Desafio**
 
-Acesse o desafio através do seguinte link: **[Desafio da Sprint](/Sprint%206/README.md)**
+Acesse o desafio através do seguinte link: **[Desafio da Sprint](/Sprint%206/desafio/README.md)**
 
 Acesse as evidências do desafio através do seguinte link: **[Evidências do desafio](/Sprint%206/evidencias/)**
