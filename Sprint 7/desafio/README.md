@@ -44,13 +44,17 @@ Com as perguntas definidas, foi possível priorizar quais APIs do TMDB seriam im
 - `https://api.themoviedb.org/3/movie/top_rated`
 - `https://api.themoviedb.org/3/movie/popular`
 
-Ainda faltam algumas URLS a serem utilizadas, principalmente para extrair alguns dados de orçamento. Infelizmente, não tive tempo de separar esses dados durante essa sprint. De qualquer forma, o a base de dados acredito que esteja bem completa. 
+Ainda faltam algumas URLS a serem utilizadas, principalmente para extrair alguns dados de orçamento. Infelizmente, não tive tempo de separar esses dados durante essa sprint. De qualquer forma, a base de dados acredito que esteja bem completa. 
 
 ![imagem_funcao](../evidencias/02_desafio_funcao.png)
 
-Para dar continuidade no desafio, foi necessário resolver algumas questões de permissão, como na imagem abaixo:
+- Acima, imagem do código realizado.
+
+Para dar continuidade no desafio, foi necessário resolver algumas questões de permissão, como podemos ver na imagem abaixo:
 
 ![imagem_permissões](../evidencias/03_desafio_permissoes.png)
+
+- Permissão de acesso total ao S3 sendo concedida ao Lambda
 
 Nas imagens a seguir, temos a evidencia do código em execução, subindo os arquivos no caminho solicitado:
 
@@ -58,7 +62,11 @@ Nas imagens a seguir, temos a evidencia do código em execução, subindo os arq
 
 ![imagem_diretorio](../evidencias/05_desafio_folder.png)
 
+- Resultado do código executado: criação da pasta TMDB.
+
 ![imagem_jsons](../evidencias/06_desafio_jsons.png)
+
+- Resultado do código executado: arquivos JSON gerados dentro do path solicitado.
 
 ### **3.2. O código**
 
@@ -66,7 +74,7 @@ Nessa seção iremos destrichar a função e explicar o código em si. Acesse o 
 
 [Script Python - Função Lambda](../desafio/lambda_function.py)
 
-Primeiramente, foi necessário fazer a importação de bibliotecas como `json`, `boto3`, `datetime`, `urllib.request` e `urllib.parse`. Infelizmente o Lambda não trabalha com a biblioteca `requests`, então a utilização da URLIB se deu por isso. Claro que era possível criar uma layer e assim subir a biblioteca no Lambda, mas depois de um tempo de pesquisa preferi procurar uma outra forma de fazer esses requests por pura curiosidade.
+Primeiramente, foi necessário fazer a importação de bibliotecas como `json`, `boto3`, `datetime`, `urllib.request` e `urllib.parse`. Infelizmente o Lambda não trabalha com a biblioteca `requests`, então a utilização da URLLIB se deu por isso. Claro que era possível criar uma layer e assim subir a biblioteca no Lambda, mas depois de um tempo de pesquisa preferi procurar uma outra forma de fazer esses requests por pura curiosidade.
 
 ![imagem_funcao](../evidencias/02_desafio_funcao.png)
 
