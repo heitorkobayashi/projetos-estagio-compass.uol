@@ -8,7 +8,7 @@ Dessa forma, nessa etapa deveríamos complementar os dados dos Filmes e Series c
 
 Clique nos seguintes links para acessar os respectivos códigos e arquivos:
 
-- [Script Python - Função Lambda](../desafio/lambda_function.py)
+- [Script Python - Função Lambda](../desafio/entrega_2/lambda_function.py)
 - [Arquivos JSON](../desafio/entrega_2/dados_tmdb)
 
 
@@ -72,7 +72,7 @@ Nas imagens a seguir, temos a evidencia do código em execução, subindo os arq
 
 Nessa seção iremos destrichar a função e explicar o código em si. Acesse o scripit no link abaixo:
 
-[Script Python - Função Lambda](../desafio/lambda_function.py)
+[Script Python - Função Lambda](../desafio/entrega_2/lambda_function.py)
 
 Primeiramente, foi necessário fazer a importação de bibliotecas como `json`, `boto3`, `datetime`, `urllib.request` e `urllib.parse`. Infelizmente o Lambda não trabalha com a biblioteca `requests`, então a utilização da URLLIB se deu por isso. Claro que era possível criar uma layer e assim subir a biblioteca no Lambda, mas depois de um tempo de pesquisa preferi procurar uma outra forma de fazer esses requests por pura curiosidade.
 
