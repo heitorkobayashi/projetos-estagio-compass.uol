@@ -28,7 +28,7 @@ raw_df = spark.read \
     .option("delimiter", "|") \
     .csv(raw_path)
 
-current_date = datetime.utcnow()
+current_date = datetime.now()
 year = current_date.year
 month = f"{current_date.month:02d}"
 day = f"{current_date.day:02d}"

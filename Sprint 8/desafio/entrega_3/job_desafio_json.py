@@ -23,7 +23,7 @@ trusted_path = f"{args['S3_TARGET_PATH']}/API"
 
 
 raw_df = spark.read.option("multiline", "true").json(raw_path)
-current_date = datetime.utcnow()
+current_date = datetime.now()
 raw_df = raw_df.withColumn("year", lit(current_date.year)) \
                .withColumn("month", lit(f"{current_date.month:02}")) \
                .withColumn("day", lit(f"{current_date.day:02}"))
