@@ -29,7 +29,7 @@ Este exercício consistia em criar um processo de extração de dados da API do 
 
 ## **Exercício Spark Batch**:
 
-Neste exercício foi utilizado um arquivo CSV para a criação de um Dataframe. Assim, foi possível testar comandos SQL. Para isso, foi gerado do zero um arquivo chamado `nomes_aleatorios.txt` que continham aproximadamente 10 milhões de nomes distintos.
+Neste exercício foi utilizado um arquivo CSV para a criação de um Dataframe. Assim, foi possível testar comandos SQL. Para isso, foi gerado do zero um arquivo chamado `nomes_aleatorios.txt` que continha aproximadamente 10 milhões de nomes distintos.
 
 
 | Etapa         | Descrição                                               | Link do código   |
