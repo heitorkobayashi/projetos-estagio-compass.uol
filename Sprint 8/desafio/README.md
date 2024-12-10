@@ -94,7 +94,7 @@ Dessa forma, realizado os Jobs, o bucket no S3 ficou assim:
 
 ### **5. Crawlers**
 
-Os crawlers são ferramentas automatizadas com o objetivo de explorar os dados armazenados. No nosso caso, esses dados estão no S3. Ele é capaz de realizar automaticamente a estrutura (esquema) edsses dados e criar tabelas no Glue Data Catalog.
+Os crawlers são ferramentas automatizadas com o objetivo de explorar os dados armazenados. No nosso caso, esses dados estão no S3. Ele é capaz de realizar automaticamente a estrutura (esquema) esses dados e criar tabelas no Glue Data Catalog.
 
 Neste desafio, optei pela criação de dois crawlers, um para os dados extraídos do CSV e outro para os dados extraídos dos arquivos JSON.
 
