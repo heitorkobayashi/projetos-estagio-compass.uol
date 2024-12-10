@@ -1,108 +1,107 @@
-# **Sprint 7: Desafio**
+# **Sprint 8: Desafio**
 
 ## **1. Objetivos**
 
-Este desafio teve como objetivo a obtenção dos dados do TMDB via AWS Lambda, realizando chamadas da API. Esses dados coletados foram upados dentro do S3, no mesmo bucket da etapa anterior. Nesse caso, os arquivos eram JSON. 
+Este desafio teve como objetivo a utilização do Apache Spark, através do AWS Glue, para integrar os dados existentes na camada Raw para a Trustedzone, gerando uma visão padronizada dos dados encontrados no S3, sendo acessível pelo AWS Athena. 
 
-Dessa forma, nessa etapa deveríamos complementar os dados dos Filmes e Series carregados anteriormente.
+Dessa forma, os dados contidos no bucket do S3, tanto o `.csv` quanto o `.json` serão transformados em `PARQUET` e particionados por data de criação no momento da ingestão dos dados.
 
 Clique nos seguintes links para acessar os respectivos códigos e arquivos:
 
-- [Script Python - Função Lambda](../desafio/entrega_2/lambda_function.py)
-- [Arquivos JSON](../desafio/entrega_2/dados_tmdb)
+- [Job CSV](../desafio/entrega_3/job_desafio_csv.py)
+- [Job JSON](../desafio/entrega_3/job_desafio_json.py)
+- [Arquivos JSON](../desafio/entrega_3/jsons/)
 
 
-## **2. Definição de Tema - Perguntas a serem respondidas**
+## **2. Motivadores**
 
-Agora com acesso às APIs foi possível visualizar certos dados que não tínhamos acesso anteriomente. O meu desafio abordará a **Análise da Relação entre Orçamento e Qualidade em Filmes de Ação da década de 2000 a 2010**. Dessa forma, as perguntas motivadoras a serem respondidas na minha pesquisa são:
+Antes de começar o desafio da Sprint, foi necessário voltar um pouco atrás para fazer a ingestão de mais dados. Após analise, ficou claro que os dados estavam escassos. Nesse caso, para o desenvolvimento da minha análise, era necessário alguns dados referentes ao orçamento dos filmes e uma maior quantidade de filmes. Então, foram utilizados as seguintes APIs:
 
-- O orçamento de produção está diretamente relacionado às notas de avaliação dos filmes de ação?
+- **Popular:** Este endpoint representa os filmes que estão em alta no momento, com maior engajamento. Geralmente esses filmes possuem altos orçamentos. Dessa forma, é útil para avaliar se um alto orçamento está associado com a popularidade do filme e com a qualidade, ou seja, a nota média. Com isso, é possível responder algumas perguntas como: Filmes populares geralmente têm altos orçamentos? Existe uma relação entre qualidade (notas) e popularidade?
+- **Top rated:** Este endpoint reúne os filmes mais bem avaliados com base na média das notas dos usuários. É possível responder perguntas como: Filmes com alta qualidade precisam de um orçamento alto? Qual a média de orçamento dos filmes mais bem avaliados?
+- **Now playing:** Este endpoint reúne os filmes que estão atualmente em exibição, captando os lançamentos mais recentes. Mesmo não fazendo parte do meu escopo inicial, esse endpoint foi utilizado como "coringa" para possível uso em determinadas circunstâncias. 
 
-- Filmes de baixo orçamento podem alcançar qualidade semelhante a filmes de alto orçamento?
+## **3. Função Lambda**
 
-Tendo em vista que a década de 2000 a 2010 foi um perído de transição no cinema, muito marcado pela popularização do uso de tecnologias como CGI e das expansões de certas franquias, podemos nos atentar a algumas questões, como:
+Pensando exatamente na minha análise, elaborei um código para coletar mais dados via TMDB. Para isso, foi criada uma layer com a biblioteca `requests`:
 
-- Filmes com orçamento elevado tiveram maior sucesso comercial entre 2000 e 2010?
+![imagem_lambdalayer](../evidencias/01_lambda_layers.png)
 
-- Existe uma correlação entre o orçamento de um filme de ação e sua nota média durante o período?
+A ideia desse código era coletar os todos os dados de uma vez a partir de 3 APIs. Você pode visualizar o código **[clicando aqui](../desafio/entrega_3/lambda_function.py)**.
 
-- O surgimento de tecnologias, como CIG, na década de 2000 impactou a relação entre orçamento e qualidade dos filmes de ação?
+![imagem_lambdahandler](../evidencias/02_lambda_function.png)
 
-- Como os filmes de ação da década de 2000 a 2010 se diferem em termos de orçamento e qualidade em comparação a décadas anteriores ou posteriores?
+Essa sprint não tinha o foco no lambda, então não vou me ater muito aos detalhes do código em si. Mas é importante ressaltar algumas coisas:
 
-## **3. Desenvolvimento**
+- Definição de duas funções: `buscar_ids_filmes` e `buscar_detalhes_filmes`. Os nomes são auto explicativos. A primeira tem como objetivo coletar os IDs dos filmes pertencentes ao genero de ação a partir da iteração das páginas, além de filtrar os filmes pelo ID 28 (ação). Já a segunda função tem como objetivo buscar as informações detalhadas de cada filme, para cada filme encontrado anteriormente, ela realiza uma chamada para a API, adicionando os detalhes de cada filme e armazenando os resultados. Dessa forma foi possível conseguir detalhes como o orçamento, avaliações e muito mais. 
+- A função `lambda_handler` é a função principal do código. É nela que foram definidos os endpoints da API e a coleta e processamento dos dados a partir da chamada às funções anteriores. Por fim, faz upload no S3 para enviar os dados ao bucket de forma particionada. 
 
-### **3.1. Passo a passo**
+Na imagem abaixo, podemos ver o resultado do código que gerou os arquivos `.json` de forma particionada como solicitado. 
 
-Para começar o desafio, o primeiro passo foi a criação da função no Lambda, como podemos ver na imagem a seguir:
+![imagem_jsonbucket](../evidencias/03_jsons_bucket.png)
 
-![imagem_criacao_funcao](../evidencias/01_desafio_criacao_funcao_lambda.png)
 
-Com as perguntas definidas, foi possível priorizar quais APIs do TMDB seriam importantes para a ingestão de dados. Nessa sprint utilizei 3 urls, sendo elas:
+## **4. Jobs no Glue**
 
-- `https://api.themoviedb.org/3/discover/movie`
-- `https://api.themoviedb.org/3/movie/top_rated`
-- `https://api.themoviedb.org/3/movie/popular`
+O primeiro passo realizado foi a criação de um database: 
 
-Ainda faltam algumas URLS a serem utilizadas, principalmente para extrair alguns dados de orçamento. Infelizmente, não tive tempo de separar esses dados durante essa sprint. De qualquer forma, a base de dados acredito que esteja bem completa. 
+![imagem_db](../evidencias/16_database.png)
 
-![imagem_funcao](../evidencias/02_desafio_funcao.png)
+### **4.1. Job CSV**
 
-- Acima, imagem do código realizado.
+Para fazer a integração de dados da camada Raw para a camada Trusted, foi realizado dois códigos distintos, um para o arquivo CSV e outro para os arquivos em JSON. Abaixo, é possível ver o código do Job para o arquivo CSV.
 
-Para dar continuidade no desafio, foi necessário resolver algumas questões de permissão, como podemos ver na imagem abaixo:
+![imagem_job_csv](../evidencias/04_job_csv.png)
 
-![imagem_permissões](../evidencias/03_desafio_permissoes.png)
+O script processa os arquivos CSV da camada Raw, transforma os dados em Parquet e os organiza na camada Trusted do Data Lake. Para isso, primeira mente, foram definidos os parâmetros de entrada:
 
-- Permissão de acesso total ao S3 sendo concedida ao Lambda
+![imagem_job_details_1](../evidencias/15_job_details_csv.png)
 
-Nas imagens a seguir, temos a evidencia do código em execução, subindo os arquivos no caminho solicitado:
+Após algumas tentativas sem sucesso, para a leitura dos dados, foi utilizado o `delimiter="|"`, pois é nessa estrutura que o arquivo CSV se encontrava. Isso foi percebido pois algumas tentativas foram bem sucedidas, mas infelizmente, ao realizar as consultas no Athena, os dados estavam todos bagunçados. Abaixo, podemos ver algumas das tentativas realizadas.
 
-![imagem_sucesso](../evidencias/04_desafio_successo.png)
+![imagem_job_runnings](../evidencias/05_job_csv_runs.png)
 
-![imagem_diretorio](../evidencias/05_desafio_folder.png)
+Na próxima imagem, podemos ver o resultado do script, a conversão para Parquet foi bem sucedida. 
 
-- Resultado do código executado: criação da pasta TMDB.
+![imagem_job_parquet](../evidencias/06_parquet_csv.png)
 
-![imagem_jsons](../evidencias/06_desafio_jsons.png)
 
-- Resultado do código executado: arquivos JSON gerados dentro do path solicitado.
+Nesse script eu não me preocupei em retirar colunas que não seriam utilizadas, o objetivo foi apenas particionar e fazer a conversão para Parquet, mantendo todos os dados obtidos.
 
-### **3.2. O código**
+### **4.2. Job JSON**
 
-Nessa seção iremos destrichar a função e explicar o código em si. Acesse o scripit no link abaixo:
+Agora, para fazer a integração dos dados obtidos da coleta da API, o passo a passo foi basicamente o mesmo.
 
-[Script Python - Função Lambda](../desafio/entrega_2/lambda_function.py)
+![imagem_job_json](../evidencias/08_job_json.png)
 
-Primeiramente, foi necessário fazer a importação de bibliotecas como `json`, `boto3`, `datetime`, `urllib.request` e `urllib.parse`. Infelizmente o Lambda não trabalha com a biblioteca `requests`, então a utilização da URLLIB se deu por isso. Claro que era possível criar uma layer e assim subir a biblioteca no Lambda, mas depois de um tempo de pesquisa preferi procurar uma outra forma de fazer esses requests por pura curiosidade.
+Este script é bem similar ao script do CSV, mas com algumas diferenças:
 
-![imagem_funcao](../evidencias/02_desafio_funcao.png)
+-  Utilização de funções auxiliares, como `lit` para criar colunas com valores constantes, `col` para facilitar a manipulação de colunas do DataFrame, `input_file_name` que permite acessar o nome do arquivo de entrada e `datetime` para obter a data atual e adicionar metadados ao DataFrame. 
+- Leitura dos arquivos JSON no caminho especificado utilizando `option("multiline", "true")`, pois os arquivos JSON possuem múltiplas linhas por registro.
+- Particionamento por data, com filtragem para os nomes ficarem da maneira correta.
 
-Como é possível ver na imagem, eu acabei aproveitando muito do corpo do código da última sprint, a estrutura era bem similar. Então na parte de configuração do bucket foi adicionado apenas a variável `file_type`, pensando no path final. 
+A seguir, podemos ver as tentativas de execução do job e o particionamento no S3.
 
-A função `upload_para_s3` também é bem similar a anterior. Ela é a função responsável por envolver o processo de envio dos dados processados para o bucket do S3. Aqui é importante ressaltar a montagem do caminho `path` baseado no parâmetro solicitado, incluindo a data. O envio para o S3 converte os dados JSON em string antes do envio. Nessa função, continuei utilizando o tratamento de erros, para exibir mensagens caso houvesse falhas (as quais me deparei algumas vezes).
+![imagem_run_json](../evidencias/09_job_json_runs.png)
 
-### **3.3. Função Lambda**
+![imagem_parquet_json](../evidencias/10_parquet_json.png)
 
-Na imagem abaixo, podemos ver a função:
+Dessa forma, realizado os Jobs, o bucket no S3 ficou assim:
 
-![imagem_funcao_lambda_1](../evidencias/07_desafio_funcao_lambda_1.png)
+![imagem_pasta_trusted](../evidencias/12_pasta_trusted.png)
 
-A função `lambda_handler` é o ponto de entrada da função Lambda. Basicamente, ela é dividida em 4 partes:
 
-- **1. Configuração da API TMDB:** Aqui é utilizada a chave de autenticação para acessar as APIs do TMDB. Cada API contém uma URL base, o seus parâmetros e filtros. Elas foram definidas 3 APIs para serem processadas:
-    - filmes_acao: Filmes de ação mais populares.
-    - filmes_mais_avaliados: Filmes mais bem avaliados de ação.
-    - filmes_populares: Filmes populares de ação.
 
-- **2. Processamento das APIs:** Nessa parte é onde ocorre a iteração em cada API, utilizando os parâmetros da `urllib.parse.urlencode` e fazendo a requisição usando `urllib.request.urlopen`. Dessa forma, o código lê e decodifica os dados retornados no formato JSON.
+### **5. Crawlers**
 
-![imagem_funcao_lambda_2](../evidencias/08_desafio_funcao_lambda_2.png)
+Os crawlers são ferramentas automatizadas com o objetivo de explorar os dados armazenados. No nosso caso, esses dados estão no S3. Ele é capaz de realizar automaticamente a estrutura (esquema) edsses dados e criar tabelas no Glue Data Catalog.
 
-- **3. Envio ao S3:** Após obter os dados de cada API, invoca a função `upload_para_s3` para enviar os dados processados ao bucket S3.
+Neste desafio, optei pela criação de dois crawlers, um para os dados extraídos do CSV e outro para os dados extraídos dos arquivos JSON.
 
-- **4. Retorno final:** Após processar todas as APIs, retorna uma mensagem indicando o sucesso.
+![imagem_crawler](../evidencias/13_crawlers.png)
 
-### **3.4 Considerações finais do código**
+A criação desses crawlers são bem simples, basicamente bastou informar corretamente o caminho do S3 e executar. Podemos ver o resultado no Athena:
 
-Por fim, este código automatizava a coleta de dados de diferentes APIs do TMDB e organizou essas informações no S3. Ele realizou requisições para obter dados sobre filmes, formatando os resultados em JSON, armazenando em pastas baseada na data do processamento. O uso do AWS Lambda, por mais complicado que tenha sido, principalmente na questão da definição da função `lambda_handler`, garantiu a automatização e tornou o processo eficiente.
+![imagem_athena](../evidencias/14_consulta_athena.png)
+
+Na query acima, foi realizado uma consulta com join entre as tabelas para verificar se estava tudo correto. E essa foi a última estapa deste desafio.
