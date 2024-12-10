@@ -17,7 +17,7 @@ Nesta sprint foram realizado dois exercícios, acesse as pastas respectivas clic
 - **[Exercício Apache Spark:](../Sprint%208/exercicios/spark_batch/)** Spark Batch
 
 
-**Exercício TMDB**:
+## **Exercício TMDB**:
 
 Este exercício consistia em criar um processo de extração de dados da API do TMDB. Para isso foi necessário criar uma conta no portal do TMDB para solicitar as chaves de acesso do uso da API.
 
@@ -27,7 +27,7 @@ Este exercício consistia em criar um processo de extração de dados da API do 
 
 - Acima, a imagem mostra o exemplo de código em Python para solicitação da API.
 
-**Exercício Spark Batch**:
+## **Exercício Spark Batch**:
 
 Neste exercício foi utilizado um arquivo CSV para a criação de um Dataframe. Assim, foi possível testar comandos SQL. Para isso, foi gerado do zero um arquivo chamado `nomes_aleatorios.txt` que continham aproximadamente 10 milhões de nomes distintos.
 
