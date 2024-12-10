@@ -53,7 +53,7 @@ Para fazer a integração de dados da camada Raw para a camada Trusted, foi real
 
 ![imagem_job_csv](../evidencias/04_job_csv.png)
 
-O script processa os arquivos CSV da camada Raw, transforma os dados em Parquet e os organiza na camada Trusted do Data Lake. Para isso, primeira mente, foram definidos os parâmetros de entrada:
+O script processa os arquivos CSV da camada Raw, transforma os dados em Parquet e os organiza na camada Trusted do Data Lake. Para isso, primeiramente, foram definidos os parâmetros de entrada:
 
 ![imagem_job_details_1](../evidencias/15_job_details_csv.png)
 
