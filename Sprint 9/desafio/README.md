@@ -2,7 +2,7 @@
 
 ## **1. Objetivos**
 
-Este desafio teve como objetivo a utilização do Apache Spark, através do AWS Glue, para integrar os dados existentes na camada Raw para a Trustedzone, gerando uma visão padronizada dos dados encontrados no S3, sendo acessível pelo AWS Athena. 
+Este desafio teve como objetivo a modelagem de dados e processamento da camada Refined. utilização do Apache Spark, através do AWS Glue, para integrar os dados existentes na camada Raw para a Trustedzone, gerando uma visão padronizada dos dados encontrados no S3, sendo acessível pelo AWS Athena. 
 
 Dessa forma, os dados contidos no bucket do S3, tanto o `.csv` quanto o `.json` serão transformados em `PARQUET` e particionados por data de criação no momento da ingestão dos dados.
 
