@@ -31,53 +31,59 @@ Tendo em vista que a década de 2000 a 2010 foi um perído de transição no cin
 
 ## **3. Camada Staging**
 
-O primeiro passo realizado foi a criação de um database: 
+A camada _Staging_ é uma camada intermediária onde os dados pré processados são armazenados de forma temporária. Ela foi de extrema importância, pois serviu como um buffer para preparar esses dados antes de realizar o dimensionamento, etapa que ocorre transformações mais elaboradas e definitivas. 
 
-![imagem_db](../evidencias/16_database.png)
+Com isso, o primeiro passo desse desafio foi realizar a união dos dados gerados na sprint anterior. Para isso, foi processado um Job no AWS Glue. Foram definidos três caminhos:
+
+- `TRUSTED_PATH_API`: caminho de origem dos dados processados da API contidos na camada Trusted.
+- `TRUSTED_PATH_CSV`: caminho de origem dos dados processados do CSV contidos na camada Trusted.
+- `STAGING_PATH`: caminho de destino do resultado do processamento do job atual. 
+
+Na imagem abaixo podemos ver parte do código: 
+
+![imagem_job_staging_01](../evidencias/08_job_camada_staging.png)
+
+- Nas linhas 30 e 36 foi realizada a seleção das colunas necessárias para o processamento dos dados de acordo com o tipo da linha da análise escolhida, tanto da API quanto do CSV. E é exatamente por isso que mais colunas da DataFrame da API foram selecionadas.
+- Na linha 40 foi realizado a filtragem de valores nulos da coluna "budget", pois é com base nesses dados que minha análise será fundamentada. 
+- Nas linhas 41 e 47 foi a criação de uma coluna `idFilmes` em ambos DataFrames, pois eles possuiam uma mesma coluna de ids com nome diferente, dessa forma foi possível fazer a união desses dados. Com isso, foi realizado a remoção do prefixo "tt" dos dados dessas colunas com `regexp_replace`, além da remoção das colunas originais. 
+- Uma observação para o nome do job. Ele não foi escolhido da melhor forma pois nas tentativas anteriores eu acreditava ser possível fazer todo o desafio em apenas um job, ou seja, todo o processamento de uma vez só. Encontrei alguns problemas no caminho e após achar a solução, mantive esse job com o código corrigido e não me atentei ao nome. 
+
+
+![imagem_job_staging_02](../evidencias/09_job_camada_staging_2.png)
+
+- Na linha 52 foi realizada a união dos DataFrames. Com `allowMissingColumns=True` foi possível permitir que caso alguma coluna estivesse faltando em um dos DataFrames, ela seria automaticamente preenchida com valores nulos.
+- Na linha 53 foi removido as duplicatas com base na coluna `idFilmes`, pois a análise final tem como objetivo prioritário trabalhar os dados dos filmes referentes a voto, popularidade e orçamento. 
+- Na linha 54 foi gerado o particionamento da gravação desses dados. Diferentemente dos códigos anteriores, optei por utilizar o módulo `datetime` contido no python. Nos jobs anteriores eu estava enfrentando muitos problemas de particionamento com data, principalmente na questão da nomeação dos diretórios e subdiretórios, dessa forma optei por utilizar algo que eu já tinha mais familiaridade e que deixasse o código mais simples. 
+
+### **3.1. Resultado do processamento**
+
+Após o processamento do job, a camada Staging ficou da seguinte forma no datalake:
+
+![imagem_bucket_camada_staging](../evidencias/02_camada_staging.png)
+
+Dessa forma, foi desenvolvido um crawler para a criação da tabela unificada. 
 
 ## **4. Camada Refined**
 
-Para fazer a integração de dados da camada Raw para a camada Trusted, foi realizado dois códigos distintos, um para o arquivo CSV e outro para os arquivos em JSON. Abaixo, é possível ver o código do Job para o arquivo CSV.
+A camada Refined é uma área em que os dados passam por transformações, estão organizados, estruturados e limpos, pronta para a análise. 
 
-![imagem_job_csv](../evidencias/04_job_csv.png)
+O segundo passo desse desafio foi a criação da camada Refined e, assim, a estruturação dos dados em uma modelagem dimensional. Para isso, foi elaborado previamente um diagrama contendo o Modelo de Dados, como podemos visualizar a seguir:
 
-O script processa os arquivos CSV da camada Raw, transforma os dados em Parquet e os organiza na camada Trusted do Data Lake. Para isso, primeiramente, foram definidos os parâmetros de entrada:
+![imagem_dimensionamento](../evidencias/00_modelo_dimensional.png)
 
-![imagem_job_details_1](../evidencias/15_job_details_csv.png)
+Este modelo foi estruturado de acordo com o padrão _star schema_. Contém uma tabela fato em que os dados quantitativos estão armazenados, ou seja, os ids. Por conta da análise focar em métricas quantitativas, como orçamento, notas de avaliação, retorno financeiro e popularidade, foram definidas 4 tabelas dimensão: Tempo, Localização, Filme e Popularidade. 
 
-Após algumas tentativas sem sucesso, para a leitura dos dados, foi utilizado o `delimiter="|"`, pois é nessa estrutura que o arquivo CSV se encontrava. Isso foi percebido pois algumas tentativas foram bem sucedidas, mas infelizmente, ao realizar as consultas no Athena, os dados estavam todos bagunçados. Abaixo, podemos ver algumas das tentativas realizadas.
+### **4.1. Código desenvolvido**
 
-![imagem_job_runnings](../evidencias/05_job_csv_runs.png)
+Agora com o modelo dimensional definido, iniciou-se o desenvolvimento do segundo job. Na imagem abaixo podemos ver a primeira parte do código:
 
-Na próxima imagem, podemos ver o resultado do script, a conversão para Parquet foi bem sucedida. 
+![imagem_job_refined_01](../evidencias/10_job_camada_refined.png)
 
-![imagem_job_parquet](../evidencias/06_parquet_csv.png)
-
-
-Nesse script eu não me preocupei em retirar colunas que não seriam utilizadas, o objetivo foi apenas particionar e fazer a conversão para Parquet, mantendo todos os dados obtidos.
-
-### **4.2. Job JSON**
-
-Agora, para fazer a integração dos dados obtidos da coleta da API, o passo a passo foi basicamente o mesmo.
-
-![imagem_job_json](../evidencias/08_job_json.png)
-
-Este script é bem similar ao script do CSV, mas com algumas diferenças:
-
--  Utilização de funções auxiliares, como `lit` para criar colunas com valores constantes, `col` para facilitar a manipulação de colunas do DataFrame, `input_file_name` que permite acessar o nome do arquivo de entrada e `datetime` para obter a data atual e adicionar metadados ao DataFrame. 
-- Leitura dos arquivos JSON no caminho especificado utilizando `option("multiline", "true")`, pois os arquivos JSON possuem múltiplas linhas por registro.
-- Particionamento por data, com filtragem para os nomes ficarem da maneira correta.
-
-A seguir, podemos ver as tentativas de execução do job e o particionamento no S3.
-
-![imagem_run_json](../evidencias/09_job_json_runs.png)
-
-![imagem_parquet_json](../evidencias/10_parquet_json.png)
-
-Dessa forma, realizado os Jobs, o bucket no S3 ficou assim:
-
-![imagem_pasta_trusted](../evidencias/12_pasta_trusted.png)
-
+- A primeira observação vai para os imports: muito desses imports não foram utilizados no código por descuido com as mudanças durante o desenvolvimento. 
+-
+-
+-
+-
 
 
 ### **5. Crawlers**
