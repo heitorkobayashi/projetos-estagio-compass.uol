@@ -2,52 +2,40 @@
 
 ## **1. Objetivos**
 
-Este desafio teve como objetivo a modelagem de dados e processamento da camada Refined. utilização do Apache Spark, através do AWS Glue, para integrar os dados existentes na camada Raw para a Trustedzone, gerando uma visão padronizada dos dados encontrados no S3, sendo acessível pelo AWS Athena. 
-
-Dessa forma, os dados contidos no bucket do S3, tanto o `.csv` quanto o `.json` serão transformados em `PARQUET` e particionados por data de criação no momento da ingestão dos dados.
+Este desafio teve como objetivo a modelagem de dados e processamento da camada Refined. Para isso, houve a manipulação do Apache Spark, utilizando um job através do AWS Glue para integrar os dados existentes na camada Trusted Zone com destino em uma camada intermediária, a camada Staging. A partir desses dados, foi definida a modelagem dimensional e um novo processamento para a criação da camada Refined.  
 
 Clique nos seguintes links para acessar os respectivos códigos e arquivos:
 
-- [Job CSV](../desafio/entrega_3/job_desafio_csv.py)
-- [Job JSON](../desafio/entrega_3/job_desafio_json.py)
-- [Arquivos JSON](../desafio/entrega_3/jsons/)
+- [Código do Job da camada Staging](../desafio/entrega_4/job_camada_staging.py)
+- [Código do Job da camada Refined](../desafio/entrega_4/job_camada_refined.py)
+- [Diagrama da modelagem dimensional](../desafio/entrega_4/modelo_dimensional.png)
 
 
-## **2. Motivadores**
+## **2. Definição de Tema - Perguntas a serem respondidas**
 
-Antes de começar o desafio da Sprint, foi necessário voltar um pouco atrás para fazer a ingestão de mais dados. Após analise, ficou claro que os dados estavam escassos. Nesse caso, para o desenvolvimento da minha análise, era necessário alguns dados referentes ao orçamento dos filmes e uma maior quantidade de filmes. Então, foram utilizados as seguintes APIs:
+Agora com acesso às APIs foi possível visualizar certos dados que não tínhamos acesso anteriomente. O meu desafio abordará a **Análise da Relação entre Orçamento e Qualidade em Filmes de Ação da década de 2000 a 2010**. Dessa forma, as perguntas motivadoras a serem respondidas na minha pesquisa são:
 
-- **Popular:** Este endpoint representa os filmes que estão em alta no momento, com maior engajamento. Geralmente esses filmes possuem altos orçamentos. Dessa forma, é útil para avaliar se um alto orçamento está associado com a popularidade do filme e com a qualidade, ou seja, a nota média. Com isso, é possível responder algumas perguntas como: Filmes populares geralmente têm altos orçamentos? Existe uma relação entre qualidade (notas) e popularidade?
-- **Top rated:** Este endpoint reúne os filmes mais bem avaliados com base na média das notas dos usuários. É possível responder perguntas como: Filmes com alta qualidade precisam de um orçamento alto? Qual a média de orçamento dos filmes mais bem avaliados?
-- **Now playing:** Este endpoint reúne os filmes que estão atualmente em exibição, captando os lançamentos mais recentes. Mesmo não fazendo parte do meu escopo inicial, esse endpoint foi utilizado como "coringa" para possível uso em determinadas circunstâncias. 
+- O orçamento de produção está diretamente relacionado às notas de avaliação dos filmes de ação?
 
-## **3. Função Lambda**
+- Filmes de baixo orçamento podem alcançar qualidade semelhante a filmes de alto orçamento?
 
-Pensando exatamente na minha análise, elaborei um código para coletar mais dados via TMDB. Para isso, foi criada uma layer com a biblioteca `requests`:
+Tendo em vista que a década de 2000 a 2010 foi um perído de transição no cinema, muito marcado pela popularização do uso de tecnologias como CGI e das expansões de certas franquias, podemos nos atentar a algumas questões, como:
 
-![imagem_lambdalayer](../evidencias/01_lambda_layers.png)
+- Filmes com orçamento elevado tiveram maior sucesso comercial entre 2000 e 2010?
 
-A ideia desse código era coletar os todos os dados de uma vez a partir de 3 APIs. Você pode visualizar o código **[clicando aqui](../desafio/entrega_3/lambda_function.py)**.
+- Existe uma correlação entre o orçamento de um filme de ação e sua nota média durante o período?
 
-![imagem_lambdahandler](../evidencias/02_lambda_function.png)
+- O surgimento de tecnologias, como CIG, na década de 2000 impactou a relação entre orçamento e qualidade dos filmes de ação?
 
-Essa sprint não tinha o foco no lambda, então não vou me ater muito aos detalhes do código em si. Mas é importante ressaltar algumas coisas:
+- Como os filmes de ação da década de 2000 a 2010 se diferem em termos de orçamento e qualidade em comparação a décadas anteriores ou posteriores?
 
-- Definição de duas funções: `buscar_ids_filmes` e `buscar_detalhes_filmes`. Os nomes são auto explicativos. A primeira tem como objetivo coletar os IDs dos filmes pertencentes ao genero de ação a partir da iteração das páginas, além de filtrar os filmes pelo ID 28 (ação). Já a segunda função tem como objetivo buscar as informações detalhadas de cada filme, para cada filme encontrado anteriormente, ela realiza uma chamada para a API, adicionando os detalhes de cada filme e armazenando os resultados. Dessa forma foi possível conseguir detalhes como o orçamento, avaliações e muito mais. 
-- A função `lambda_handler` é a função principal do código. É nela que foram definidos os endpoints da API e a coleta e processamento dos dados a partir da chamada às funções anteriores. Por fim, faz upload no S3 para enviar os dados ao bucket de forma particionada. 
-
-Na imagem abaixo, podemos ver o resultado do código que gerou os arquivos `.json` de forma particionada como solicitado. 
-
-![imagem_jsonbucket](../evidencias/03_jsons_bucket.png)
-
-
-## **4. Jobs no Glue**
+## **3. Camada Staging**
 
 O primeiro passo realizado foi a criação de um database: 
 
 ![imagem_db](../evidencias/16_database.png)
 
-### **4.1. Job CSV**
+## **4. Camada Refined**
 
 Para fazer a integração de dados da camada Raw para a camada Trusted, foi realizado dois códigos distintos, um para o arquivo CSV e outro para os arquivos em JSON. Abaixo, é possível ver o código do Job para o arquivo CSV.
 
