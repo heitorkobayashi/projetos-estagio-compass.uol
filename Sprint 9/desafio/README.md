@@ -79,23 +79,71 @@ Agora com o modelo dimensional definido, iniciou-se o desenvolvimento do segundo
 
 ![imagem_job_refined_01](../evidencias/10_job_camada_refined.png)
 
-- A primeira observação vai para os imports: muito desses imports não foram utilizados no código por descuido com as mudanças durante o desenvolvimento. 
--
--
--
--
+- Nas linhas 12 e 13 podemos ver a definição dos caminhos: `REFINED_PATH` e `STAGING_PATH`.
+- Nas linhas 21 e 22 foi realizado o a leitura dos dados da camada Staging e, na sequência, a remoção de valores nulos nas colunas com mais importância. 
+
+Sobre os imports, farei um adendo importante: muitos desses imports não foram utilizados no código por descuido com as mudanças durante o desenvolvimento. Nessa etapa eu obtive uma certa dificuldade na criação das tabelas, com a limpeza de dados e com o particionamento. Então após diversas tentativas frustradas, acabei deixando todos os imports dos códigos antigos. Abaixo é possível visualizar as tentativa de runs do job. 
+
+![imagem_job_runs_](../evidencias/15_job_runs.png)
+
+- Mesmo aqueles que obtiveram sucesso, no fim, não estavam de acordo com o que era necessário para a análise.
+
+Voltando para o código, abaixo podemos ver a segunda parte dele:
+
+![imagem_job_refined_02](../evidencias/11_job_camada_refined_2.png)
+
+- Nesta etapa foi realizada a criação das tabelas dimensionais. 
+- Para a renomeação das colunas, foi utilizado o método `.alias()`. 
+- O particionamento foi realizado de acordo com a tabela.
+- O `.dropDuplicates()` foi utilizado para remoção de duplicatas.
+
+![imagem_job_refined_03](../evidencias/12_job_camada_refined_3.png)
+
+- Na criação da tabela `dim_localizacao`, `dim_tempo` e `dim_popularidade` foi utilizado o `monotonically_increasing_id` para gerar IDs únicos para cada registro, dessa forma, garantindo compatibilidade e integridade entre as tabelas. 
+- A partir da linha 60 foi realizada a criação da tabela fato. Ela foi construída a partir de joins entre o DataFrame principal e as dimensões criadas anteriormente.
+- Com `how="inner"` foi possível garantir que apenas as linhas com valores correspondentes nas tabelas fossem mantidas. 
+- Para o join da tabela `dim_localizacao` foi necessário utilizar mais de uma condição no parâmetro `on` por causa do relacionamento entre os dados nas duas tabelas.
+
+![imagem_job_refined_04](../evidencias/13_job_camada_refined_4.png)
+
+- Por fim, temos a consolidação final das colunas da tabela fato, assim como a finalização do job.
+
+### **4.2. Resultado do processamento**
+
+Após o processamento do job, a camada Refined ficou da seguinte forma no datalake:
+
+![imagem_camada_refined](../evidencias/03_camada_refined.png)
+
+- Aqui podemos ver que não houve particionamento com a data atual, mas sim por cada tabela.
+
+![imagem_bucket_dimfilme](../evidencias/04_camada_refined_dimfilme.png)
+
+- Na imagem acima, é possível visualizar como os arquivos parquet foram gravados. 
+
+### **5. Evidências no bucket**
+
+Na imagens abaixo é possível visualizar como ficou o datalake após todos esses processamentos:
+
+![imagem_camadas_datalake](../evidencias/01_camadas_datalake.png)
 
 
-### **5. Crawlers**
+### **6. Crawlers**
 
-Os crawlers são ferramentas automatizadas com o objetivo de explorar os dados armazenados. No nosso caso, esses dados estão no S3. Ele é capaz de realizar automaticamente a estrutura (esquema) desses dados e criar tabelas no Glue Data Catalog.
+Os crawlers são ferramentas automatizadas com o objetivo de explorar os dados armazenados, como explicado na sprint anterior. 
 
-Neste desafio, optei pela criação de dois crawlers, um para os dados extraídos do CSV e outro para os dados extraídos dos arquivos JSON.
+Neste desafio, foi decidido trabalhar na criação de dois crawlers, um para a camada staging e outra para a refined. Abaixo é possível visualizar os crawlers criados com sucesso. 
 
-![imagem_crawler](../evidencias/13_crawlers.png)
+![imagem_crawler](../evidencias/14_crawlers.png)
+
+- Nessa sprint, os crawlers criados e executados foram:
+    - `desafio_sprint09` e `desafio_sprint09_dimensionamento`. 
 
 A criação desses crawlers são bem simples, basicamente bastou informar corretamente o caminho do S3 e executar. Podemos ver o resultado no Athena:
 
-![imagem_athena](../evidencias/14_consulta_athena.png)
+![imagem_athena](../evidencias/05_tabelas_athena.png)
 
-Na query acima, foi realizado uma consulta com join entre as tabelas para verificar se estava tudo correto. E essa foi a última estapa deste desafio.
+- A tabela `24` é a tabela unificada no primeiro Job. As tabelas `api` e `csv` são referentes a sprint anterior. 
+
+![imagem_athena](../evidencias/06_query_dimfilme.png)
+
+Na imagem acima podemos ver o resultado de uma query na tabela `dim_filme`, encerrando o desafio da Sprint 09. 
